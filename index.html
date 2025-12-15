@@ -1290,67 +1290,91 @@ Xayr."</em></p>
             }
             
             // Active nav link highlight
-            const sections = document.querySelectorAll('.page');
-            const navLinksAll = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinksAll.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
+           <form action="https://docs.google.com/forms/d/e/1FAIpQLScx_nMDO4PpanTSl_6iKgJen9pHiAk5J20-ZcJTOkri4BamuA/viewform?usp=dialog" 
+      method="POST" 
+      target="_blank"
+      class="contact-form"
+      id="contactForm">
+    
+    <h3 style="margin-bottom: 30px;">Xabar Yuboring</h3>
+    
+    <!-- Ism -->
+    <div class="form-group">
+        <label for="entry.1234567890">Ismingiz *</label>
+        <input type="text" 
+               name="entry.1234567890" 
+               class="form-control" 
+               placeholder="Ism Familiya" 
+               required>
+    </div>
+    
+    <!-- Email -->
+    <div class="form-group">
+        <label for="entry.0987654321">Elektron Pochta *</label>
+        <input type="email" 
+               name="entry.0987654321" 
+               class="form-control" 
+               placeholder="email@example.com" 
+               required>
+    </div>
+    
+    <!-- Mavzu -->
+    <div class="form-group">
+        <label for="entry.1357924680">Mavzu</label>
+        <input type="text" 
+               name="entry.1357924680" 
+               class="form-control" 
+               placeholder="Xabar mavzusi">
+    </div>
+    
+    <!-- Xabar -->
+    <div class="form-group">
+        <label for="entry.2468135790">Xabaringiz *</label>
+        <textarea name="entry.2468135790" 
+                  class="form-control" 
+                  placeholder="Xabaringizni bu yerda yozing..." 
+                  required></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary btn-block">
+        <i class="fas fa-paper-plane"></i> Xabarni Yuborish
+    </button>
+    
+    <div id="formMessage" style="margin-top: 20px; display: none;"></div>
+</form>
+
+<script>
+// Form yuborilganda
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const formMessage = document.getElementById('formMessage');
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    // Yuklanish animatsiyasi
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Yuborilmoqda...';
+    submitBtn.disabled = true;
+    
+    // 3 soniyadan keyin xabar ko'rsatish
+    setTimeout(() => {
+        formMessage.style.display = 'block';
+        formMessage.style.color = '#4CAF50';
+        formMessage.innerHTML = '✅ Rahmat! Xabaringiz qabul qilindi. Tez orada siz bilan bog\'lanamiz.';
+        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         
-        // SMOOTH SCROLL FOR NAV LINKS (FIXED)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    navLinks.classList.remove('active');
-                    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+        // Formani tozalash
+        this.reset();
         
-        // FORM SUBMISSION
-        document.getElementById('submitForm').addEventListener('click', function() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (!name || !email || !message) {
-                alert('Iltimos, barcha maydonlarni to\'ldiring!');
-                return;
-            }
-            
-            alert('Rahmat! Xabaringiz qabul qilindi. Tez orada siz bilan bog\'lanamiz.');
-            
-            // Reset form
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('subject').value = '';
-            document.getElementById('message').value = '';
-        });
+        // Tugmani qayta faollashtirish
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // 5 soniyadan keyin xabarni yashirish
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 5000);
+    }, 3000);
+});
+</script>
         
         // TADBIRLAR SLIDER
         const eventSlider = document.getElementById('eventSlider');
