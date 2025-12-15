@@ -1129,29 +1129,238 @@
         </div>
         
         <div class="contact-container">
-            <div class="contact-form">
-                <h3 style="margin-bottom: 30px;">Xabar Yuboring</h3>
-                
-                <div class="form-group">
-                    <label for="name">Ismingiz</label>
-                    <input type="text" id="name" class="form-control" placeholder="Ism Familiya">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Elektron Pochta</label>
-                    <input type="email" id="email" class="form-control" placeholder="email@example.com">
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject">Mavzu</label>
-                    <input type="text" id="subject" class="form-control" placeholder="Xabar mavzusi">
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Xabaringiz</label>
-                    <textarea id="message" class="form-control" placeholder="Xabaringizni bu yerda yozing..."></textarea>
-                </div>
-                
+           <!-- ALMASHTIRISH: Quyidagi kodni sizning "Biz bilan Aloqa" qismiga qo'ying -->
+<!-- Mana shu qismni o'chiring: -->
+<!--
+<div class="contact-form">
+    <h3 style="margin-bottom: 30px;">Xabar Yuboring</h3>
+    ... (barcha form elementi)
+</div>
+-->
+
+<!-- VA UNING O'RNIGA QUYIDAGI GOOGLE FORMS KODINI QO'YING: -->
+
+<div class="contact-form">
+    <h3 style="margin-bottom: 30px; color: #deb05a;">Xabar Yuboring</h3>
+    
+    <div style="
+        background: rgba(194, 40, 34, 0.05);
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #deb05a;
+        margin-bottom: 25px;
+        font-size: 14px;">
+        <i class="fas fa-info-circle" style="color: #deb05a; margin-right: 8px;"></i>
+        Agarda biz bilan birga ishlab volontyor bo'lishni xohlasangiz, "O'zim haqimda" maydonida o'zingiz haqingizda yozib qoldiring.
+    </div>
+    
+    <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScx_nMDO4PpanTSl_6iKgJen9pHiAk5J20-ZcJTOkri4BamuA/formResponse"
+          method="POST"
+          id="misGoogleForm"
+          target="_blank"
+          style="width: 100%;">
+        
+        <!-- Ism -->
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="name" style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
+                Ismingiz *
+            </label>
+            <input type="text" 
+                   name="entry.2005620554"
+                   id="name"
+                   required
+                   class="form-control" 
+                   placeholder="Ism Familiya"
+                   style="
+                    border: 2px solid #c22822;
+                    background: rgba(194, 40, 34, 0.05);
+                    color: #333;
+                    padding: 12px 15px;
+                    border-radius: 6px;">
+        </div>
+        
+        <!-- Email -->
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="email" style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
+                Elektron Pochta *
+            </label>
+            <input type="email" 
+                   name="entry.1065046570"
+                   id="email"
+                   required
+                   class="form-control" 
+                   placeholder="email@example.com"
+                   style="
+                    border: 2px solid #c22822;
+                    background: rgba(194, 40, 34, 0.05);
+                    color: #333;
+                    padding: 12px 15px;
+                    border-radius: 6px;">
+        </div>
+        
+        <!-- Mavzu -->
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="subject" style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
+                Mavzu
+            </label>
+            <input type="text" 
+                   name="entry.839337160"
+                   id="subject"
+                   class="form-control" 
+                   placeholder="O'zingizni qiziqtirgan mavzu"
+                   style="
+                    border: 2px solid #c22822;
+                    background: rgba(194, 40, 34, 0.05);
+                    color: #333;
+                    padding: 12px 15px;
+                    border-radius: 6px;">
+        </div>
+        
+        <!-- Xabaringiz -->
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="message" style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
+                Xabaringiz yoki G'oyangiz *
+            </label>
+            <textarea name="entry.1166974658"
+                      id="message"
+                      required
+                      class="form-control" 
+                      placeholder="Biz bilan ulashmoqchi bo'lgan kreativ g'oyangiz va fikrlaringiz"
+                      rows="4"
+                      style="
+                        border: 2px solid #c22822;
+                        background: rgba(194, 40, 34, 0.05);
+                        color: #333;
+                        padding: 12px 15px;
+                        border-radius: 6px;
+                        resize: vertical;
+                        min-height: 120px;"></textarea>
+        </div>
+        
+        <!-- O'zim haqimda (Volontyorlik uchun) -->
+        <div class="form-group" style="margin-bottom: 25px;">
+            <label style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
+                <i class="fas fa-user-check" style="margin-right: 8px;"></i>
+                O'zim haqimda (Volontyorlik uchun)
+            </label>
+            <textarea name="entry.839337160"
+                      class="form-control" 
+                      placeholder="Agar volontyor bo'lishni istasangiz, o'zingiz haqingizda yozing (ixtisoslik, qiziqishlar)"
+                      rows="3"
+                      style="
+                        border: 2px solid #deb05a;
+                        background: rgba(222, 176, 90, 0.1);
+                        color: #333;
+                        padding: 12px 15px;
+                        border-radius: 6px;
+                        resize: vertical;
+                        min-height: 100px;"></textarea>
+        </div>
+        
+        <!-- Submit button -->
+        <button type="submit" 
+                class="btn btn-primary btn-block"
+                id="submitGoogleForm"
+                style="
+                    background: linear-gradient(135deg, #c22822 0%, #a0201a 100%);
+                    border: none;
+                    color: white;
+                    padding: 14px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;">
+            <i class="fas fa-paper-plane"></i> Xabarni Yuborish
+        </button>
+        
+        <!-- Xabar statusi -->
+        <div id="googleFormMessage" style="
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+            font-size: 14px;"></div>
+    </form>
+</div>
+
+<script>
+// Google Forms JavaScript qo'shamiz
+document.addEventListener('DOMContentLoaded', function() {
+    const googleForm = document.getElementById('misGoogleForm');
+    const messageDiv = document.getElementById('googleFormMessage');
+    
+    if (googleForm) {
+        // Avvalgi form submit'ni o'chiramiz
+        const oldSubmitBtn = document.getElementById('submitForm');
+        if (oldSubmitBtn) {
+            oldSubmitBtn.removeEventListener('click', () => {});
+        }
+        
+        // Yangi Google Forms submit
+        googleForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('#submitGoogleForm');
+            const originalText = submitBtn.innerHTML;
+            
+            // Yuklanish ko'rsatish
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Yuborilmoqda...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            
+            // Google Forms'ga yuborish
+            const formData = new FormData(this);
+            
+            // 1.5 soniya kutish (animatsiya uchun)
+            setTimeout(() => {
+                fetch(this.action, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: new URLSearchParams(formData)
+                }).then(() => {
+                    // Muvaffaqiyatli
+                    messageDiv.style.display = 'block';
+                    messageDiv.style.background = 'rgba(76, 175, 80, 0.1)';
+                    messageDiv.style.border = '1px solid #4caf50';
+                    messageDiv.style.color = '#2e7d32';
+                    messageDiv.innerHTML = '✅ Rahmat! Xabaringiz Google Forms orqali qabul qilindi.';
+                    
+                    // Formni tozalash
+                    googleForm.reset();
+                    
+                    // Tugmani tiklash
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    
+                    // Xabarni 5 soniyadan keyin yashirish
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                    
+                }).catch(() => {
+                    // Xato
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    messageDiv.style.display = 'block';
+                    messageDiv.style.background = 'rgba(244, 67, 54, 0.1)';
+                    messageDiv.style.border = '1px solid #f44336';
+                    messageDiv.style.color = '#c62828';
+                    messageDiv.innerHTML = '❌ Xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.';
+                });
+            }, 1500);
+        });
+    }
+});
+</script>
                 <button class="btn btn-primary btn-block" id="submitForm">
                     <i class="fas fa-paper-plane"></i> Xabarni Yuborish
                 </button>
