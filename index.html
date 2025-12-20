@@ -610,292 +610,406 @@
 </head>
 <body>
     <!-- NAVBAR -->
-<!-- NAVBAR (BUTUN ESKI NAVBAR O'RNIGA QO'YING) -->
-<nav class="navbar" id="navbar" style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(6px);
-    padding: 15px 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    border-bottom: 2px solid #c22822;
-">
-    <div class="nav-container" style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-    ">
-        <!-- SIMPLE LOGO -->
-        <a href="#home" class="logo-container" style="
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIS Navbar</title>
+    
+    <!-- Fontlar -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== NAVBAR UCHUN ASOSIY O'ZGARUVCHILAR ===== */
+        :root {
+            --primary-red: #c22820;
+            --dark-red: #8a1c18;
+            --accent-gold: #deb05a;
+            --light-gold: #f4c430;
+            --text-light: #ffffff;
+            --text-dark: #1a1a1a;
+            --navbar-glass: rgba(194, 40, 32, 0.85);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* ===== UMUMIY STILLAR ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-top: 80px; /* Navbar uchun joy */
+        }
+        
+        /* ===== TO'G'RILANGAN SHAFFOF NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--navbar-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999; /* Yuqori z-index */
+            border-bottom: 2px solid rgba(222, 176, 90, 0.4);
+            transition: var(--transition);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.7rem 5%; /* Kichraygan holati */
+            background: rgba(138, 28, 24, 0.95);
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        
+        /* ===== LOGO QISMI ===== */
+        .logo-nav {
             display: flex;
             align-items: center;
-            gap: 8px;
-            text-decoration:glow effect;
-            padding: 5px;
-            transition: transform 0.3s ease;
-        ">
-            <!-- LOGO IMAGE -->
-            <div class="logo-image" style="
-                width: 45px;
-                height: 45px;
-                border-radius: 50%;
-                overflow: hidden;
-                border: 2px solid #deb05a;
-                transition: all 0.3s ease;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            ">
-                <img src="loyiha.jpg" 
-                     alt="MIS Logo" 
-                     style="
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                     "
-                     onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:100%;background:linear-gradient(135deg,#c22822,#deb05a);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:18px;\">MIS</div>
-            </div>
-            
-            <!-- LOGO TEXT -->
-            <div class="logo-text" style="
-                display: flex;
-                flex-direction: column;
-            ">
-                <div class="logo-main" style="
-                    font-size: 22px;
-                    font-weight: 700;
-                    color: #deb05a;
-                    line-height: 1;
-                    letter-spacing: 0.5px;
-                ">MIS</div>
-                <div class="logo-sub" style="
-                    font-size: 10px;
-                    color: #f8f9fa;
-                    opacity: 1.1;
-                    letter-spacing: 1.5px;
-                    text-transform: uppercase;
-                    margin-top: 2px;
-                ">Milliy Ilm Suhbati</div>
-            </div>
-        </a>
+            gap: 15px;
+            text-decoration: none;
+        }
         
-        <!-- MOBILE MENU BUTTON -->
-        <button class="menu-btn" id="menuBtn" style="
+        .logo-img-container {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(222, 176, 90, 0.5);
+            box-shadow: 0 0 20px rgba(222, 176, 90, 0.3);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Logo aylana animatsiyasi */
+        .logo-img-container::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--accent-gold);
+            border-right-color: var(--light-gold);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        .logo-img-container:hover::before {
+            opacity: 1;
+            transform: rotate(360deg);
+            width: 65px;
+            height: 65px;
+        }
+        
+        .logo-img:hover {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 0 30px rgba(222, 176, 90, 0.5);
+            border-color: var(--accent-gold);
+        }
+        
+        .logo-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* ===== NAVIGATSIYA LINKLARI ===== */
+        .nav-links {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(222, 176, 90, 0.1), rgba(244, 196, 48, 0.05));
+            border-radius: 50px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+        
+        .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .nav-link:hover {
+            color: var(--text-light);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--text-dark);
+            box-shadow: 0 5px 20px rgba(222, 176, 90, 0.3);
+            font-weight: 700;
+        }
+        
+        /* ===== MOBIL MENYU ===== */
+        .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: #f8f9fa;
-            font-size: 24px;
+            color: var(--text-light);
+            font-size: 1.5rem;
             cursor: pointer;
-            padding: 5px;
-        ">
+            padding: 8px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        /* ===== RESPONSIVLIK ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(138, 28, 24, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 0;
+                border-top: 2px solid var(--accent-gold);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo-text h2 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text span {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text h2 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text span {
+                display: none;
+            }
+        }
+        
+        /* ===== KONTENT (Test uchun) ===== */
+        .content {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+        }
+        
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .space {
+            height: 1500px; /* Scroll qilish uchun joy */
+        }
+    </style>
+</head>
+<body>
+    <!-- SHAFFOF NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo-nav">
+            <div class="logo-img-container">
+                <img src="loyiha.jpg" alt="MIS Logo" class="logo-img">
+            </div>
+            <div class="logo-text">
+                <h2>MIS</h2>
+                <span>Milliy Ilm Suhbati</span>
+            </div>
+        </a>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link active">Bosh Sahifa</a>
+            <a href="#about" class="nav-link">Biz Haqimizda</a>
+            <a href="#events" class="nav-link">Tadbirlar</a>
+            <a href="#team" class="nav-link">Jamoa</a>
+            <a href="#contact" class="nav-link">Aloqa</a>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
         </button>
-        
-        <!-- NAVIGATION LINKS -->
-        <ul class="nav-links" id="navLinks" style="
-            display: flex;
-            gap: 25px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        ">
-            <li><a href="#home" class="nav-link active" style="
-                color: #deb05a;
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 15px;
-                padding: 8px 0;
-                position: relative;
-                transition: color 0.3s ease;
-            ">Bosh Sahifa</a></li>
-            <li><a href="#about" class="nav-link" style="
-                color: #f8f9fa;
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 15px;
-                padding: 8px 0;
-                position: relative;
-                transition: color 0.3s ease;
-            ">Loyiha</a></li>
-            <li><a href="#team" class="nav-link" style="
-                color: #f8f9fa;
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 15px;
-                padding: 8px 0;
-                position: relative;
-                transition: color 0.3s ease;
-            ">Jamoa</a></li>
-            <li><a href="#events" class="nav-link" style="
-                color: #f8f9fa;
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 15px;
-                padding: 8px 0;
-                position: relative;
-                transition: color 0.3s ease;
-            ">Tadbirlar</a></li>
-            <li><a href="#contact" class="nav-link" style="
-                color: #f8f9fa;
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 15px;
-                padding: 8px 0;
-                position: relative;
-                transition: color 0.3s ease;
-            ">Aloqa</a></li>
+    </nav>
+
+    <!-- TEST KONTENTI -->
+    <div class="content">
+        <h1>MIS - Milliy Ilm Suhbati</h1>
+        <p>Navbar endi to'g'ri ishlaydi:</p>
+        <ul>
+            <li>✅ Tepadagi yozuvlarni to'sib qo'ymaydi</li>
+            <li>✅ Pastga tushganda kichrayadi</li>
+            <li>✅ Logo hover qilganda aylanadi</li>
+            <li>✅ Mobil qurilmalarda yaxshi ishlaydi</li>
+            <li>✅ Smooth animatsiyalar bor</li>
         </ul>
+        <p>Pastga scroll qilib ko'ring - navbar kichrayadi!</p>
     </div>
-</nav>
-
-<!-- SIMPLE CSS FOR LOGO EFFECTS -->
-<style>
-/* SIMPLE HOVER EFFECTS */
-.logo-container:hover .logo-image {
-    transform: scale(1.05);
-    border-color: #c22822;
-    box-shadow: 0 5px 15px rgba(194, 40, 34, 0.3);
-}
-
-.logo-container:hover .logo-main {
-    color: #c22822;
-}
-
-.logo-container:active .logo-image {
-    transform: scale(0.95);
-}
-
-/* ACTIVE NAV LINK */
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #deb05a;
-}
-
-.nav-link:hover {
-    color: #deb05a !important;
-}
-
-/* SCROLL EFFECT FOR NAVBAR */
-.navbar.scrolled {
-    padding: 10px 0;
-    background: rgba(26, 26, 26, 0.98);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-    .menu-btn {
-        display: block !important;
-    }
     
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(26, 26, 26, 0.98);
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-    
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .logo-image {
-        width: 40px !important;
-        height: 40px !important;
-    }
-    
-    .logo-main {
-        font-size: 20px !important;
-    }
-    
-    .logo-sub {
-        font-size: 9px !important;
-        letter-spacing: 1px !important;
-    }
-}
+    <div class="space"></div>
 
-@media (max-width: 480px) {
-    .logo-text {
-        display: none !important;
-    }
-    
-    .logo-container {
-        gap: 0 !important;
-    }
-}
-</style>
-
-<!-- MINIMAL JAVASCRIPT -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // MOBILE MENU TOGGLE
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-    }
-    
-    // NAVBAR SCROLL EFFECT
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    
-    // SMOOTH SCROLL
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
+    <script>
+        // Navbar scroll effekti
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollPosition = window.scrollY;
             
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Close mobile menu
-                if (navLinks) navLinks.classList.remove('active');
-                if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth'
-                });
+            if (scrollPosition > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
-    });
-});
-</script>
 
+        // Mobil menyu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Sektionalarga scroll
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Faqat sektsiya linklari uchun
+                if (this.getAttribute('href').startsWith('#')) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Mobil menyuni yopish
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            const icon = mobileMenuBtn.querySelector('i');
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                }
+            });
+        });
+
+        // Logo hover effektlari
+        document.querySelectorAll('.logo-img').forEach(logo => {
+            logo.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotate(15deg) scale(1.1)';
+            });
+            
+            logo.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotate(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
 <!-- HERO SECTION KORREKTSIYASI (PAGE TEPASIDAGI HEADLINE) -->
 <!-- Agar hero sectionni ham soddalashtirmoqchi bo'lsangiz, bu koddan keyin qo'shing: -->
 <div style="margin-top: 80px; padding: 40px 20px; text-align: center; background: linear-gradient(135deg, #111111, #222222); color: white;">
