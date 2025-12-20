@@ -3,468 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIS - Milliy Ilm Suhbati | Ilmiy Platforma</title>
+    <title>MIS - Milliy Ilm Suhbati | Fikringni kengaytir - hayotingni o'zgartir</title>
     
-    <!-- Fontlar -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="loyiha.jpg">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ===== ASOSIY O'ZGARUVCHILAR ===== */
+        /* ====== ASOSIY STILLAR ====== */
         :root {
-            --primary-red: #c22820;
-            --dark-red: #8a1c18;
+            --primary-red: #c22822;
             --accent-gold: #deb05a;
-            --light-gold: #f4c430;
-            --text-light: #ffffff;
-            --text-dark: #1a1a1a;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --shadow-hard: 0 20px 50px rgba(0, 0, 0, 0.3);
+            --dark-bg: #1a1a1a;
+            --light-bg: #ffffff;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
         
-        /* ===== UMUMIY STILLAR ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        html {
-            scroll-behavior: smooth;
-        }
-        
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
-            color: var(--text-light);
-            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg);
             overflow-x: hidden;
-            min-height: 100vh;
         }
         
-        /* ===== PREMIUM NAVIGATSIYA ===== */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ====== NAVBAR ====== */
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(194, 40, 32, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 1.2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
             z-index: 1000;
-            border-bottom: 3px solid var(--accent-gold);
-            box-shadow: var(--shadow-soft);
             transition: var(--transition);
+            border-bottom: 2px solid var(--primary-red);
         }
         
         .navbar.scrolled {
-            padding: 0.8rem 5%;
-            background: rgba(138, 28, 24, 0.98);
+            padding: 10px 0;
+            box-shadow: var(--shadow);
         }
         
-        .logo-nav {
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 15px;
-            text-decoration: none;
+            gap: 10px;
         }
         
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-gold);
-            box-shadow: 0 0 20px rgba(222, 176, 90, 0.5);
-            transition: var(--transition);
-        }
-        
-        .logo-img:hover {
-            transform: rotate(15deg) scale(1.1);
-            box-shadow: 0 0 30px rgba(222, 176, 90, 0.8);
-        }
-        
-        .logo-text h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.8rem;
-            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .logo-text span {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            color: var(--text-light);
+        .logo span {
+            color: var(--primary-red);
         }
         
         .nav-links {
             display: flex;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
+            gap: 30px;
+            list-style: none;
         }
         
         .nav-link {
             color: var(--text-light);
             text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 500;
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
+            padding: 5px 0;
         }
         
-        .nav-link::before {
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-gold);
+        }
+        
+        .nav-link.active::after {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
             background: var(--accent-gold);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-            z-index: -1;
         }
         
-        .nav-link:hover::before {
-            width: 150px;
-            height: 150px;
-        }
-        
-        .nav-link:hover {
-            color: var(--text-dark);
-        }
-        
-        .nav-link.active {
-            background: var(--accent-gold);
-            color: var(--text-dark);
-            box-shadow: 0 5px 15px rgba(222, 176, 90, 0.4);
-        }
-        
-        .mobile-menu-btn {
+        .menu-btn {
             display: none;
             background: none;
             border: none;
             color: var(--text-light);
-            font-size: 1.5rem;
+            font-size: 24px;
             cursor: pointer;
         }
         
-        /* ===== SAHIFA KONTEYNERI ===== */
-        .page {
+        /* ====== HERO SECTION ====== */
+        .hero {
             min-height: 100vh;
-            padding: 140px 5% 80px;
-            position: relative;
-        }
-        
-        .page-header {
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.8)), 
+                        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            padding-top: 80px;
             text-align: center;
-            margin-bottom: 60px;
-            position: relative;
         }
         
-        .page-header h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-        
-        .page-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--light-gold));
-            border-radius: 2px;
-        }
-        
-        .page-header p {
-            font-size: 1.4rem;
+        .hero-content {
             max-width: 800px;
-            margin: 30px auto 0;
-            opacity: 0.9;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
         
-        /* ===== ANIMATSIYALI SARLAVHA ===== */
-        .animated-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .title-main {
-            display: block;
-            background: linear-gradient(135deg, var(--text-light) 30%, var(--accent-gold) 70%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-            animation: titleGlow 3s ease-in-out infinite;
-        }
-        
-        .title-sub {
-            display: block;
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            margin-top: 0.8rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        @keyframes titleGlow {
-            0%, 100% { text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3); }
-            50% { text-shadow: 0 5px 35px rgba(222, 176, 90, 0.6); }
-        }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* ===== KARTALAR ===== */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 35px;
-            transition: var(--transition);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(222, 176, 90, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--light-gold));
-        }
-        
-        .card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: var(--shadow-hard);
-            border-color: var(--accent-gold);
-        }
-        
-        .card-icon {
+        .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             color: var(--accent-gold);
         }
         
-        .card h3 {
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            font-family: 'Montserrat', sans-serif;
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
         
-        /* ===== JAMOA KARTALARI ===== */
-        .team-grid {
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* ====== SECTIONS UMUMIY ====== */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-red);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ====== ABOUT SECTION ====== */
+        .about-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
+            gap: 30px;
             margin-top: 50px;
         }
         
-        .team-card {
+        .about-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 35px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(222, 176, 90, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--light-gold));
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hard);
-            border-color: var(--accent-gold);
-        }
-        
-        .member-avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 3.5rem;
-            color: var(--primary-red);
-            font-weight: 800;
-            border: 4px solid var(--light-gold);
-            box-shadow: 0 10px 30px rgba(222, 176, 90, 0.4);
-        }
-        
-        .team-card h4 {
-            color: var(--accent-gold);
-            margin-bottom: 10px;
-            font-size: 1.6rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .member-role {
-            color: var(--light-gold);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        /* ===== TADBIRLAR JADVALI (YANGI KREATIV DIZAYN) ===== */
-        .events-showcase {
-            max-width: 1100px;
-            margin: 50px auto;
-            position: relative;
-        }
-        
-       // TADBIRLAR SLIDER (TO'G'RILANGAN)
-document.addEventListener('DOMContentLoaded', function() {
-    const eventSlider = document.getElementById('eventSlider');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    if (eventSlider && prevBtn && nextBtn) {
-        const cardWidth = 320 + 30; // card width + gap
-        
-        nextBtn.addEventListener('click', () => {
-            eventSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
-        });
-        
-        prevBtn.addEventListener('click', () => {
-            eventSlider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-        });
-    }
-});
-        
-        .event-showcase-card {
-            flex: 0 0 320px;
-            background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 15px;
             padding: 30px;
-            border: 2px solid rgba(222, 176, 90, 0.3);
+            box-shadow: var(--shadow);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(15px);
+            border-top: 4px solid var(--primary-red);
         }
         
-        .event-showcase-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            border-color: var(--accent-gold);
-            box-shadow: var(--shadow-hard);
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(194, 40, 34, 0.15);
         }
         
-        .event-showcase-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--light-gold));
-        }
-        
-        .event-date-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent-gold);
+        .about-card i {
+            font-size: 2.5rem;
             color: var(--primary-red);
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(222, 176, 90, 0.3);
+            margin-bottom: 20px;
         }
         
-        .event-category {
-            display: inline-block;
-            background: rgba(222, 176, 90, 0.2);
-            color: var(--accent-gold);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+        /* ====== EVENTS SECTION ====== */
+        .events-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .events-slider {
+            display: flex;
+            gap: 30px;
+            padding: 20px 0;
+            transition: transform 0.5s ease;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        .events-slider::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        .event-card {
+            flex: 0 0 auto;
+            width: 300px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .event-date {
+            background: var(--primary-red);
+            color: white;
+            padding: 15px;
+            text-align: center;
             font-weight: 600;
         }
         
-        .event-showcase-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            min-height: 70px;
+        .event-content {
+            padding: 25px;
         }
         
-        .event-expert {
+        .event-speaker {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             margin: 15px 0;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
         }
         
-        .expert-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--accent-gold);
+        .speaker-avatar {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-red);
-            font-weight: bold;
+            color: white;
+            font-weight: 600;
         }
         
         .slider-controls {
@@ -478,32 +319,35 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--accent-gold);
-            color: var(--primary-red);
+            background: var(--primary-red);
+            color: white;
             border: none;
-            font-size: 1.2rem;
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
         
         .slider-btn:hover {
+            background: #a0201a;
             transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(222, 176, 90, 0.4);
         }
         
-        /* ===== ALOQA FORMASI ===== */
+        /* ====== CONTACT SECTION ====== */
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
             margin-top: 50px;
         }
         
         .contact-form {
             background: var(--card-bg);
             padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
         }
         
         .form-group {
@@ -513,1121 +357,882 @@ document.addEventListener('DOMContentLoaded', function() {
         .form-group label {
             display: block;
             margin-bottom: 10px;
-            color: var(--accent-gold);
             font-weight: 600;
+            color: var(--primary-red);
         }
         
         .form-control {
             width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(222, 176, 90, 0.3);
-            border-radius: 10px;
-            color: var(--text-light);
-            font-size: 1rem;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
             transition: var(--transition);
+            background: #f8f9fa;
         }
         
         .form-control:focus {
             outline: none;
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(222, 176, 90, 0.2);
+            border-color: var(--primary-red);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(194, 40, 34, 0.1);
         }
         
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* ===== TUGMALAR ===== */
         .btn {
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
+            cursor: pointer;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
+            justify-content: center;
+            gap: 10px;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
-            color: var(--text-dark);
-            box-shadow: 0 10px 30px rgba(222, 176, 90, 0.3);
+            background: linear-gradient(135deg, var(--primary-red), #a0201a);
+            color: white;
         }
         
         .btn-primary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(222, 176, 90, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(194, 40, 34, 0.3);
         }
         
         .btn-secondary {
             background: transparent;
-            color: var(--accent-gold);
-            border: 2px solid var(--accent-gold);
-            backdrop-filter: blur(10px);
+            border: 2px solid var(--primary-red);
+            color: var(--primary-red);
         }
         
         .btn-secondary:hover {
-            background: var(--accent-gold);
-            color: var(--text-dark);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(222, 176, 90, 0.3);
+            background: var(--primary-red);
+            color: white;
         }
         
         .btn-block {
             width: 100%;
-            justify-content: center;
         }
         
-        /* ===== TELEGRAM BANNER ===== */
-        .telegram-banner {
-            background: linear-gradient(135deg, #0088cc, #229ed9);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 60px auto;
-            max-width: 900px;
-            text-align: center;
-            border: 3px solid var(--accent-gold);
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-hard);
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
         
-        .telegram-banner h3 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: white;
-            position: relative;
-            z-index: 1;
+        .contact-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-gold);
         }
         
-        .telegram-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background: white;
-            color: #0088cc;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-top: 25px;
-            transition: var(--transition);
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .telegram-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* ===== FOOTER ===== */
+        /* ====== FOOTER ====== */
         .footer {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 60px 5%;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 60px 0 30px;
             text-align: center;
-            margin-top: 80px;
-            border-top: 3px solid var(--accent-gold);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 0%, rgba(222, 176, 90, 0.1) 0%, transparent 50%);
         }
         
         .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
         }
         
         .footer-motto {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--accent-gold);
             margin-bottom: 30px;
-            font-weight: 600;
+            font-style: italic;
         }
         
         .team-signature {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(222, 176, 90, 0.2), rgba(244, 196, 48, 0.2));
-            padding: 15px 40px;
-            border-radius: 50px;
-            border: 2px solid var(--accent-gold);
-            margin: 20px 0;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--accent-gold);
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            margin-bottom: 30px;
+            font-weight: 600;
         }
         
         .footer-links {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 30px;
             margin: 30px 0;
-            flex-wrap: wrap;
         }
         
         .footer-links a {
-            color: var(--accent-gold);
+            color: var(--text-light);
             text-decoration: none;
             transition: var(--transition);
-            padding: 12px 25px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         
         .footer-links a:hover {
-            background: var(--accent-gold);
-            color: var(--text-dark);
-            transform: translateY(-3px);
+            color: var(--accent-gold);
         }
         
         .copyright {
-            opacity: 0.7;
-            margin-top: 30px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
+            opacity: 0.8;
         }
         
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 1200px) {
-            .page-header h2 { font-size: 3rem; }
-            .animated-title { font-size: 4rem; }
-            .title-sub { font-size: 2.2rem; }
-        }
-        
+        /* ====== RESPONSIVE DESIGN ====== */
         @media (max-width: 992px) {
-            .page-header h2 { font-size: 2.8rem; }
-            .animated-title { font-size: 3.5rem; }
-            .title-sub { font-size: 2rem; }
-            .cards-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-            .event-showcase-card { flex: 0 0 280px; }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
         }
         
         @media (max-width: 768px) {
-            .navbar { padding: 1rem; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(138, 28, 24, 0.98);
-                flex-direction: column;
-                padding: 20px;
-                border-radius: 0;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
+            .menu-btn {
                 display: block;
             }
             
-            .page { padding: 120px 5% 60px; }
-            .page-header h2 { font-size: 2.3rem; }
-            .animated-title { font-size: 2.8rem; }
-            .title-sub { font-size: 1.8rem; }
-            .cards-grid { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: 1fr; }
-            .contact-container { grid-template-columns: 1fr; }
-            .telegram-banner h3 { font-size: 2rem; }
-            .footer-links { flex-direction: column; align-items: center; }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--dark-bg);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-card {
+                width: 280px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
         
         @media (max-width: 480px) {
-            .page-header h2 { font-size: 2rem; }
-            .animated-title { font-size: 2.2rem; }
-            .title-sub { font-size: 1.5rem; }
-            .card { padding: 25px; }
-            .team-card { padding: 25px; }
-            .member-avatar { width: 120px; height: 120px; font-size: 2.8rem; }
-            .event-showcase-card { flex: 0 0 260px; padding: 20px; }
-            .telegram-link { padding: 12px 25px; font-size: 1.1rem; }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+        
+        /* ====== UTILITY CLASSES ====== */
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .mt-30 { margin-top: 30px; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-30 { margin-bottom: 30px; }
+        .hidden { display: none; }
+        
+        /* ====== FORM MESSAGE STYLES ====== */
+        .form-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 500;
+            text-align: center;
+            display: none;
+            border: 1px solid transparent;
+        }
+        
+        .form-message.success {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: #4caf50;
+            color: #2e7d32;
+        }
+        
+        .form-message.error {
+            background: rgba(244, 67, 54, 0.1);
+            border-color: #f44336;
+            color: #c62828;
         }
     </style>
 </head>
 <body>
-    <!-- NAVIGATSIYA -->
+    <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
-        <a href="#home" class="logo-nav">
-            <img src="loyiha.jpg" alt="MIS Logosi" class="logo-img">
-            <div class="logo-text">
-                <h2>MIS</h2>
-                <span>Milliy Ilm Suhbati</span>
-            </div>
-        </a>
-        
-        <button class="mobile-menu-btn" id="menuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-        
-        <div class="nav-links" id="navLinks">
-            <a href="#home" class="nav-link active">Bosh Sahifa</a>
-            <a href="#about" class="nav-link">Loyiha Haqida</a>
-            <a href="#format" class="nav-link">Format</a>
-            <a href="#team" class="nav-link">Jamoa</a>
-            <a href="#events" class="nav-link">Tadbirlar</a>
-            <a href="#contact" class="nav-link">Aloqa</a>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span>M</span>IS
+            </a>
+            
+            <button class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">Bosh Sahifa</a></li>
+                <li><a href="#about" class="nav-link">Loyiha</a></li>
+                <li><a href="#team" class="nav-link">Jamoa</a></li>
+                <li><a href="#events" class="nav-link">Tadbirlar</a></li>
+                <li><a href="#contact" class="nav-link">Aloqa</a></li>
+            </ul>
         </div>
     </nav>
-    
-    <!-- 1. BOSH SAHIFA -->
-    <section id="home" class="page">
-        <div class="page-header">
-            <h1 class="animated-title">
-                <span class="title-main">MIS - Milliy Ilm Suhbati</span>
-                <span class="title-sub">Fikringni kengaytir - hayotingni o'zgartir</span>
-            </h1>
-            <p>O'zbek tilida dunyoni chuqur tahlil qilamiz, yurakdan gaplashamiz, birga hayratlanamiz</p>
-        </div>
-        
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>Ilmning Sof Manbai</h3>
-                <p>Bu yerda faqat toza o'zbek tili, halol suhbat va yangi fikrlar yashaydi. Har bir mavzu chuqur, jiddiy va o'zbekona falsafa bilan tushuntiriladi.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">🔥</div>
-                <h3>Milliy G'urur</h3>
-                <p>Biz o'zbek tilining qudratiga ishonamiz. MIS - o'zbek tilida ilmiy suhbat madaniyatini yaratish harakati.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Innovatsion Format</h3>
-                <p>15-20 daqiqalik Dildan suhbatlar. Notiq mavzuni har tomonlama yoritadi, auditoriya ("ilm-fan shaydolari") bilan muloqot qiladi.</p>
-            </div>
-        </div>
-        
-        <!-- TELEGRAM BANNER -->
-        <div class="telegram-banner">
-            <h3>📢 MIS Telegram Jamoasiga Qo'shiling</h3>
-            <p>Barcha yangi suhbatlar, foydali materiallar va eksklyuziv kontentlar</p>
-            <a href="https://t.me/MilliyIlmSuhbati" target="_blank" class="telegram-link">
-                <i class="fab fa-telegram-plane"></i> @MilliyIlmSuhbati
-            </a>
-        </div>
-        
-        <!-- STATISTIKA -->
-        <div style="display: flex; justify-content: center; gap: 50px; margin-top: 60px; flex-wrap: wrap;">
-            <div style="text-align: center;">
-                <div style="font-size: 3.5rem; color: var(--accent-gold); font-weight: 800;">2</div>
-                <div>Yaratuvchi</div>
-            </div>
-            <div style="text-align: center;">
-                <div style="font-size: 3.5rem; color: var(--accent-gold); font-weight: 800;">15-20</div>
-                <div>Daqiqa Format</div>
-            </div>
-            <div style="text-align: center;">
-                <div style="font-size: 3.5rem; color: var(--accent-gold); font-weight: 800;">100</div>
-                <div>% O'zbek Tili</div>
-            </div>
-            <div style="text-align: center;">
-                <div style="font-size: 3.5rem; color: var(--accent-gold); font-weight: 800;">50</div>
-                <div>Dildan Suhbat</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- 2. LOYIHA HAQIDA -->
-    <section id="about" class="page">
-        <div class="page-header">
-            <h2>Loyiha Haqida</h2>
-            <p>MIS - O'zbek tilida ilmiy suhbat madaniyatini yaratuvchi premium platforma</p>
-        </div>
-        
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>MIS Nima?</h3>
-                <p>MIS - Milliy Ilm Suhbati - bu TED Talk formatida, lekin o'zbekcha va o'zbek milliy ruhidagi intellektual muhokama platformasi. Biz har hil mavzularni chuqur tahlil qilamiz va oddiy tushunarli tilda ommaga yetkazamiz.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">📜</div>
-                <h3>Qat'iy Qoidalar</h3>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                        18+ so'zlar ishlatilmaydi
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                        Shaxsni yomonlash yo'q
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                        15+ yosh chegarasi
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                        Ko'cha va sheva so'zlari man etiladi
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                        Xorijiy so'z ishlatilsa, tarjimasi aytiladi
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                        Jamoat qoidalariga qarshi mavzu yo'q
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">⚖️</div>
-                <h3>Adabiyot va Madaniyat</h3>
-                <p>Har bir nutqda:</p>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">✅ Auditoriyaga hurmat bilan murojaat</li>
-                    <li style="margin-bottom: 10px;">✅ Faktlarga asoslangan tahlil</li>
-                    <li style="margin-bottom: 10px;">✅ Subyektiv fikr alohida bildiriladi</li>
-                    <li style="margin-bottom: 10px;">✅ Jo'shqinlik va kayfiyat bilan</li>
-                    <li style="margin-bottom: 10px;">✅ Professional prezentatsiya</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <!-- 3. FORMAT -->
-    <section id="format" class="page">
-        <div class="page-header">
-            <h2>Suhbat Formati</h2>
-            <p>MIS suhbatlarining tuzilishi va mazmuni</p>
-        </div>
-        
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">⏱️</div>
-                <h3>Davomiylik va Struktura</h3>
-                <p><strong>20 daqiqa:</strong> Har bir nutq aniq 20 daqiqa davom etadi.</p>
-                <p><strong>1-2 mavzu:</strong> Bir suhbatda 1 yoki 2 ta mavzu yoritiladi.</p>
-                <p><strong>Auditoriya ishtiroki:</strong> Mavzu boshlanishidan oldin umumiy savol beriladi.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">📅</div>
-                <h3>Dastur Jadvali</h3>
-                <p><strong>Asosiy suhbatlar:</strong> Har oy 4 ta premium suhbat.</p>
-                <p><strong>Kichik ma'lumotlar:</strong> 3 kunda bir qiziqarli fakt yoki tahlil.</p>
-                <p><strong>Jonli efirlar:</strong> Oylik ochiq suhbatlar.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">🎤</div>
-                <h3>Nutq Boshlanishi</h3>
-                <p><em>"Assalomu alaykum, ilm-fan shaydolari! Men [Ism Familiya]. Bugun men sizlar bilan mana shu mavzuni birga tahlil qilmoqchiman..."</em></p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">✨</div>
-                <h3>Nutq Tugashi</h3>
-                <p><em>"Bu dunyo — Alloh yaratgan olamning har tomonlama qirralari benihoya. Ularni tahlil qilish va o‘rganish bizni ruhan boyitadi, ona tilimizda fikrlashga yo‘naltiradi.
 
-Hech qachon unutmang: biz albatta yutamiz.
-Sog‘ bo‘ling, omon bo‘ling, o‘z dunyoyingizni kash eting.
-Xayr."
-
-</em></p>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>MIS - Milliy Ilm Suhbati</h1>
+                <p class="hero-subtitle">Fikringni kengaytir - hayotingni o'zgartir</p>
+                <p class="hero-subtitle">O'zbek tilida dunyoni chuqur tahlil qilamiz, yurakdan gaplashamiz, birga hayratlanamiz</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Yaratuvchi</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15-20</span>
+                        <span class="stat-label">Daqiqa Format</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100</span>
+                        <span class="stat-label">% O'zbek Tili</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50</span>
+                        <span class="stat-label">Dildan Suhbat</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- 4. JAMOA -->
-    <section id="team" class="page">
-        <div class="page-header">
-            <h2>MIS Jamoasi</h2>
-            <p>MIS loyihasini yaratgan 2 ta yosh ijodkor</p>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Loyiha Haqida</h2>
+            <p class="section-subtitle">MIS - O'zbek tilida ilmiy suhbat madaniyatini yaratuvchi premium platforma</p>
+            
+            <div class="about-cards">
+                <div class="about-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>MIS Nima?</h3>
+                    <p>MIS - Milliy Ilm Suhbati - bu TED Talk formatida, lekin o'zbekcha va o'zbek milliy ruhidagi intellektual muhokama platformasi. Biz har hil mavzularni chuqur tahlil qilib, oddiy tushunarli tilda ommaga yetkazamiz.</p>
+                </div>
+                
+                <div class="about-card">
+                    <i class="fas fa-scroll"></i>
+                    <h3>Qat'iy Qoidalar</h3>
+                    <ul>
+                        <li>18+ so'zlar ishlatilmaydi</li>
+                        <li>Shaxsni yomonlash yo'q</li>
+                        <li>15+ yosh chegarasi</li>
+                        <li>Ko'cha va sheva so'zlari man etiladi</li>
+                        <li>Xorijiy so'z ishlatilsa, tarjimasi aytiladi</li>
+                        <li>Jamoat qoidalariga qarshi mavzu yo'q</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Adabiyot va Madaniyat</h3>
+                    <p>Har bir nutqda: auditoriyaga hurmat bilan murojaat, faktlarga asoslangan tahlil, subyektiv fikr alohida bildiriladi, jo'shqinlik va kayfiyat bilan, professional prezentatsiya.</p>
+                </div>
+            </div>
         </div>
-        
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="member-avatar">BJ</div>
-                <h4>Bahodir Jo'rayev</h4>
-                <div class="member-role">Loyiha Asoschisi & Strategik Rahbar</div>
-                <p>MIS loyihasining asoschisi, umumiy strategiya va kontent siyosati</p>
+    </section>
+
+    <!-- FORMAT SECTION -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Suhbat Formati</h2>
+            <p class="section-subtitle">MIS suhbatlarining tuzilishi va mazmuni</p>
+            
+            <div class="about-cards">
+                <div class="about-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Davomiylik va Struktura</h3>
+                    <p><strong>20 daqiqa:</strong> Har bir nutq aniq 20 daqiqa davom etadi.</p>
+                    <p><strong>1-2 mavzu:</strong> Bir suhbatda 1 yoki 2 ta mavzu yoritiladi.</p>
+                    <p><strong>Auditoriya ishtiroki:</strong> Mavzu boshlanishidan oldin umumiy savol beriladi.</p>
+                </div>
+                
+                <div class="about-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Dastur Jadvali</h3>
+                    <p><strong>Asosiy suhbatlar:</strong> Har oy 4 ta premium suhbat.</p>
+                    <p><strong>Kichik ma'lumotlar:</strong> 3 kunda bir qiziqarli fakt yoki tahlil.</p>
+                    <p><strong>Jonli efirlar:</strong> Oylik ochiq suhbatlar.</p>
+                </div>
+                
+                <div class="about-card">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h3>Nutq Boshlanishi</h3>
+                    <p>"Assalomu alaykum, ilm-fan shaydolari! Men [Ism Familiya]. Bugun men sizlar bilan mana shu mavzuni birga tahlil qilmoqchiman..."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section id="team" class="section">
+        <div class="container">
+            <h2 class="section-title">MIS Jamoasi</h2>
+            <p class="section-subtitle">MIS loyihasini yaratgan 2 ta yosh ijodkor</p>
+            
+            <div class="about-cards">
+                <div class="about-card text-center">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-red), var(--accent-gold)); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">BJ</div>
+                    <h3>Bahodir Jo'rayev</h3>
+                    <p><strong>Loyiha Asoschisi & Strategik Rahbar</strong></p>
+                    <p>MIS loyihasining asoschisi, umumiy strategiya va kontent siyosati</p>
+                </div>
+                
+                <div class="about-card text-center">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-red), var(--accent-gold)); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">BN</div>
+                    <h3>Behruz Noraliyev</h3>
+                    <p><strong>Loyiha Asoschisi & Strategik Rahbar</strong></p>
+                    <p>MIS loyihasining asoschisi, umumiy strategiya va kontent siyosati</p>
+                </div>
             </div>
             
-            <div class="team-card">
-                <div class="member-avatar">BN</div>
-                <h4>Behruz Noraliyev</h4>
-                <div class="member-role">Loyiha Asoschisi & Strategik Rahbar</div>
-                <p>MIS loyihasining asoschisi, umumiy strategiya va kontent siyosati</p>
+            <div class="contact-card mt-30">
+                <h3 class="text-center">Jamoa Falsafasi</h3>
+                <p class="text-center" style="font-size: 1.1rem; line-height: 1.8;">
+                    "Biz - MIS. O'zbek yoshlarining intellektual salohiyatini oshirish, milliy tafakkurni rivojlantirish va o'zbek tilida dunyo darajasidagi kontent yaratish uchun birlashgan jamoa. Bizning ishimiz - ilmdan, madaniyatdan va milliy g'ururdan iborat."
+                </p>
             </div>
-    
-    
-        <div class="card" style="max-width: 800px; margin: 50px auto;">
-            <h3 style="text-align: center;">Jamoa Falsafasi</h3>
-            <p style="text-align: center; font-size: 1.3rem; line-height: 1.8; margin-top: 20px;">
-                "Biz - MIS. O'zbek yoshlarining intellektual salohiyatini oshirish, milliy tafakkurni rivojlantirish va o'zbek tilida dunyo darajasidagi kontent yaratish uchun birlashgan jamoa. Bizning ishimiz - ilmdan, madaniyatdan va milliy g'ururdan iborat."
-            </p>
         </div>
     </section>
-    
-    <!-- 5. TADBIRLAR (YANGI KREATIV DIZAYN) -->
-    <section id="events" class="page">
-        <div class="page-header">
-            <h2>Kelgusi Tadbirlar</h2>
-            <p>MIS platformasidagi yaqin suhbat va tadbirlar</p>
-        </div>
-        
-        <div class="events-showcase">
-            <div class="event-slider" id="eventSlider">
-                <!-- Tadbir 1 -->
-                <div class="event-showcase-card">
-                    <div class="event-date-badge">25-dekabr</div>
-                    <div class="event-category">Sun'iy Intellekt</div>
-                    <h3>Sun'iy Intellekt va Kelajak</h3>
-                    
-                    <div class="event-expert">
-                        <div class="expert-avatar">AK</div>
-                        <div>
-                            <div><strong>Mehmon:</strong> Dr. Aziz Karimov</div>
-                            <div>AI mutaxassisi</div>
+
+    <!-- EVENTS SECTION -->
+    <section id="events" class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Kelgusi Tadbirlar</h2>
+            <p class="section-subtitle">MIS platformasidagi yaqin suhbat va tadbirlar</p>
+            
+            <div class="events-container">
+                <div class="events-slider" id="eventSlider">
+                    <!-- Event 1 -->
+                    <div class="event-card">
+                        <div class="event-date">25-dekabr • Sun'iy Intellekt</div>
+                        <div class="event-content">
+                            <h3>Sun'iy Intellekt va Kelajak</h3>
+                            <div class="event-speaker">
+                                <div class="speaker-avatar">AK</div>
+                                <div>
+                                    <strong>Mehmon: Dr. Aziz Karimov</strong>
+                                    <p>AI mutaxassisi</p>
+                                </div>
+                            </div>
+                            <p>Sun'iy intellektning insoniyatga ta'siri va kelajakdagi o'rni. AI texnologiyalari bizning hayotimizni qanday o'zgartirayotgani.</p>
+                            <div style="display: flex; justify-content: space-between; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                                <span>⏱️ 20 daqiqa</span>
+                                <span>🎫 Dildan suhbat</span>
+                            </div>
                         </div>
                     </div>
                     
-                    <p>Sun'iy intellektning insoniyatga ta'siri va kelajakdagi o'rni. AI texnologiyalari bizning hayotimizni qanday o'zgartirayotgani.</p>
-                    
-                    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-                        <span>⏱️ 20 daqiqa</span>
-                        <span>🎫 Dildan suhbat</span>
-                    </div>
-                </div>
-                
-                <!-- Tadbir 2 -->
-                <div class="event-showcase-card">
-                    <div class="event-date-badge">5-yanvar</div>
-                    <div class="event-category">Adabiyot</div>
-                    <h3>O'zbek Adabiyoti Renaissance</h3>
-                    
-                    <div class="event-expert">
-                        <div class="expert-avatar">YY</div>
-                        <div>
-                            <div><strong>Mehmon:</strong> Yuldosh Yormatov</div>
-                            <div>Yozuvchi, adabiyotshunos</div>
+                    <!-- Event 2 -->
+                    <div class="event-card">
+                        <div class="event-date">5-yanvar • Adabiyot</div>
+                        <div class="event-content">
+                            <h3>O'zbek Adabiyoti Renaissance</h3>
+                            <div class="event-speaker">
+                                <div class="speaker-avatar">YY</div>
+                                <div>
+                                    <strong>Mehmon: Yuldosh Yormatov</strong>
+                                    <p>Yozuvchi, adabiyotshunos</p>
+                                </div>
+                            </div>
+                            <p>Zamonaviy o'zbek adabiyoti tendensiyalari va yangi avlod adiblari. Klassika va zamonaviylik uyg'unligi.</p>
+                            <div style="display: flex; justify-content: space-between; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                                <span>⏱️ 20 daqiqa</span>
+                                <span>🎫 Dildan suhbat</span>
+                            </div>
                         </div>
                     </div>
                     
-                    <p>Zamonaviy o'zbek adabiyoti tendensiyalari va yangi avlod adiblari. Klassika va zamonaviylik uyg'unligi.</p>
-                    
-                    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-                        <span>⏱️ 20 daqiqa</span>
-                        <span>🎫 Dildan suhbat</span>
-                    </div>
-                </div>
-                
-                <!-- Tadbir 3 -->
-                <div class="event-showcase-card">
-                    <div class="event-date-badge">15-yanvar</div>
-                    <div class="event-category">Biznes</div>
-                    <h3>Start-up Madaniyati O'zbekistonda</h3>
-                    
-                    <div class="event-expert">
-                        <div class="expert-avatar">SR</div>
-                        <div>
-                            <div><strong>Mehmon:</strong> Sardor Rahimov</div>
-                            <div>Start-up asoschisi</div>
+                    <!-- Event 3 -->
+                    <div class="event-card">
+                        <div class="event-date">15-yanvar • Biznes</div>
+                        <div class="event-content">
+                            <h3>Start-up Madaniyati O'zbekistonda</h3>
+                            <div class="event-speaker">
+                                <div class="speaker-avatar">SR</div>
+                                <div>
+                                    <strong>Mehmon: Sardor Rahimov</strong>
+                                    <p>Start-up asoschisi</p>
+                                </div>
+                            </div>
+                            <p>Biznes ekotizim va yoshlar imkoniyatlari. O'zbekistonda start-up rivojlanishi va moliyalashtirish manbalari.</p>
+                            <div style="display: flex; justify-content: space-between; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                                <span>⏱️ 20 daqiqa</span>
+                                <span>🎫 Dildan suhbat</span>
+                            </div>
                         </div>
                     </div>
                     
-                    <p>Biznes ekotizim va yoshlar imkoniyatlari. O'zbekistonda start-up rivojlanishi va moliyalashtirish manbalari.</p>
-                    
-                    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-                        <span>⏱️ 20 daqiqa</span>
-                        <span>🎫 Dildan suhbat</span>
+                    <!-- Event 4 -->
+                    <div class="event-card">
+                        <div class="event-date">1-fevral • Ekologiya</div>
+                        <div class="event-content">
+                            <h3>Iqlim O'zgarishi: O'zbekiston Tahdidlari</h3>
+                            <div class="event-speaker">
+                                <div class="speaker-avatar">EN</div>
+                                <div>
+                                    <strong>Mehmon: Elnora Niyazova</strong>
+                                    <p>Ekolog mutaxassis</p>
+                                </div>
+                            </div>
+                            <p>Iqlim o'zgarishining O'zbekistonga ta'siri va yechimlar. Suv resurslari va qishloq xo'jaligi kelajagi.</p>
+                            <div style="display: flex; justify-content: space-between; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                                <span>⏱️ 20 daqiqa</span>
+                                <span>🎫 Dildan suhbat</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Tadbir 4 -->
-                <div class="event-showcase-card">
-                    <div class="event-date-badge">1-fevral</div>
-                    <div class="event-category">Ekologiya</div>
-                    <h3>Iqlim O'zgarishi: O'zbekiston Tahdidlari</h3>
-                    
-                    <div class="event-expert">
-                        <div class="expert-avatar">EN</div>
-                        <div>
-                            <div><strong>Mehmon:</strong> Elnora Niyazova</div>
-                            <div>Ekolog mutaxassis</div>
-                        </div>
-                    </div>
-                    
-                    <p>Iqlim o'zgarishining O'zbekistonga ta'siri va yechimlar. Suv resurslari va qishloq xo'jaligi kelajagi.</p>
-                    
-                    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-                        <span>⏱️ 20 daqiqa</span>
-                        <span>🎫 Dildan suhbat</span>
-                    </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
-            
-            <div class="slider-controls">
-                <button class="slider-btn" id="prevBtn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="slider-btn" id="nextBtn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 50px;">
-            <button class="btn btn-primary" id="viewAllEvents">
-                <i class="fas fa-calendar-alt"></i> Barcha Tadbirlarni Ko'rish
-            </button>
         </div>
     </section>
-    
-    <!-- 6. ALOQA -->
-    <section id="contact" class="page">
-        <div class="page-header">
-            <h2>Biz bilan Aloqa</h2>
-            <p>MIS platformasi bilan bog'lanish va hamkorlik uchun</p>
-        </div>
-        
-        <div class="contact-container">
-    
 
-<!-- VA UNING O'RNIGA QUYIDAGI GOOGLE FORMS KODINI QO'YING: -->
-
-<div class="contact-form">
-    <h3 style="margin-bottom: 30px; color: #deb05a;">Xabar Yuboring</h3>
-    
-    <div style="
-        background: rgba(194, 40, 34, 0.05);
-        padding: 15px;
-        border-radius: 8px;
-        border-left: 4px solid #deb05a;
-        margin-bottom: 25px;
-        font-size: 14px;">
-        <i class="fas fa-info-circle" style="color: #deb05a; margin-right: 8px;"></i>
-        Agarda biz bilan birga ishlab volontyor bo'lishni xohlasangiz, "O'zim haqimda" maydonida o'zingiz haqingizda yozib qoldiring.
-    </div>
-    
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLScx_nMDO4PpanTSl_6iKgJen9pHiAk5J20-ZcJTOkri4BamuA/viewform?usp=dialog"
-          method="POST"
-          id="misGoogleForm"
-          target="_blank"
-          style="width: 100%;">
-        
-        <!-- Ism -->
-        <div class="form-group" style="margin-bottom: 20px;">
-            <label for="name" style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
-                Ismingiz *
-            </label>
-            <input type="text" 
-                   name="entry.2005620554"
-                   id="name"
-                   required
-                   class="form-control" 
-                   placeholder="Ism Familiya"
-                   style="
-                    border: 2px solid #deb05a;
-                    background: rgba(194, 40, 34, 0.05);
-                    color: #deb05a;
-                    padding: 12px 15px;
-                    border-radius: 6px;">
-        </div>
-        
-        <!-- Email -->
-        <div class="form-group" style="margin-bottom: 20px;">
-            <label for="email" style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
-                Elektron Pochta *
-            </label>
-            <input type="email" 
-                   name="entry.1065046570"
-                   id="email"
-                   required
-                   class="form-control" 
-                   placeholder="email@example.com"
-                   style="
-                     border: 2px solid #deb05a;
-                    background: rgba(194, 40, 34, 0.05);
-                    color:#deb05a;
-                    padding: 12px 15px;
-                    border-radius: 6px;">
-        </div>
-        
-        <!-- Mavzu -->
-        <div class="form-group" style="margin-bottom: 20px;">
-            <label for="subject" style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
-                Mavzu
-            </label>
-            <input type="text" 
-                   name="entry.839337160"
-                   id="subject"
-                   class="form-control" 
-                   placeholder="O'zingizni qiziqtirgan mavzu"
-                   style="
-                    border: 2px solid #deb05a;
-                    background: rgba(194, 40, 34, 0.05);
-                    color: #deb05a;
-                    padding: 12px 15px;
-                    border-radius: 6px;">
-        </div>
-        
-        <!-- Xabaringiz -->
-        <div class="form-group" style="margin-bottom: 20px;">
-            <label for="message" style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
-                Xabaringiz yoki G'oyangiz *
-            </label>
-            <textarea name="entry.1166974658"
-                      id="message"
-                      required
-                      class="form-control" 
-                      placeholder="Biz bilan ulashmoqchi bo'lgan kreativ g'oyangiz va fikrlaringiz"
-                      rows="4"
-                      style="
-                       border: 2px solid #deb05a;
-                        background: rgba(194, 40, 34, 0.05);
-                        color:#deb05a;
-                        padding: 12px 15px;
-                        border-radius: 6px;
-                        resize: vertical;
-                        min-height: 120px;"></textarea>
-        </div>
-        
-        <!-- O'zim haqimda (Volontyorlik uchun) -->
-        <div class="form-group" style="margin-bottom: 25px;">
-            <label style="display: block; margin-bottom: 8px; color: #deb05a; font-weight: 600;">
-                <i class="fas fa-user-check" style="margin-right: 8px;"></i>
-                O'zim haqimda (Volontyorlik uchun)
-            </label>
-            <textarea name="entry.839337160"
-                      class="form-control" 
-                      placeholder="Agar volontyor bo'lishni istasangiz, o'zingiz haqingizda yozing (ixtisoslik, qiziqishlar)"
-                      rows="3"
-                      style="
-                        border: 2px solid #deb05a;
-                        background: rgba(222, 176, 90, 0.1);
-                        color: #deb05a;
-                        padding: 12px 15px;
-                        border-radius: 6px;
-                        resize: vertical;
-                        min-height: 100px;"></textarea>
-        </div>
-        
-       
-                    background: linear-gradient(135deg, #c22822 0%, #a0201a 100%);
-                    border: none;
-                    color: white;
-                    padding: 14px;
-                    font-size: 16px;
-                    font-weight: 600;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    transition: all 0.3s;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;">
-            <i class="fas fa-paper-plane"></i> Xabarni Yuborish
-        </button>
-        
-        <!-- Xabar statusi -->
-        <div id="googleFormMessage" style="
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 6px;
-            text-align: center;
-            font-weight: 500;
-            display: none;
-            font-size: 14px;"></div>
-    </form>
-</div>
-background: linear-gradient(135deg, #c22822 0%, #a0201a 100%); border: none; color: white; padding: 14px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;">
-<script>
-
-    if (googleForm) {
-        // Avvalgi form submit'ni o'chiramiz
-        const oldSubmitBtn = document.getElementById('submitForm');
-        if (oldSubmitBtn) {
-            oldSubmitBtn.removeEventListener('click', () => {});
-        }
-        
-        // Yangi Google Forms submit
-        googleForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Biz bilan Aloqa</h2>
+            <p class="section-subtitle">MIS platformasi bilan bog'lanish va hamkorlik uchun</p>
             
-            const submitBtn = this.querySelector('#submitGoogleForm');
-            const originalText = submitBtn.innerHTML;
-            
-            // Yuklanish ko'rsatish
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Yuborilmoqda...';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-            
-            // Google Forms'ga yuborish
-            const formData = new FormData(this);
-            
-            // 1.5 soniya kutish (animatsiya uchun)
-            setTimeout(() => {
-                fetch(this.action, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: new URLSearchParams(formData)
-                }).then(() => {
-                    // Muvaffaqiyatli
-                    messageDiv.style.display = 'block';
-                    messageDiv.style.background = 'rgba(76, 175, 80, 0.1)';
-                    messageDiv.style.border = '1px solid #4caf50';
-                    messageDiv.style.color = '#2e7d32';
-                    messageDiv.innerHTML = '✅ Rahmat! Xabaringiz Google Forms orqali qabul qilindi.';
+            <div class="contact-container">
+                <!-- Google Forms Contact Form -->
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 30px; color: var(--primary-red);">Xabar Yuboring</h3>
                     
-                    // Formni tozalash
-                    googleForm.reset();
+                    <div style="background: rgba(222, 176, 90, 0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent-gold); margin-bottom: 25px; font-size: 14px;">
+                        <i class="fas fa-info-circle" style="color: var(--accent-gold); margin-right: 8px;"></i>
+                        Agarda biz bilan birga ishlab volontyor bo'lishni xohlasangiz, "O'zim haqimda" maydonida o'zingiz haqingizda yozib qoldiring.
+                    </div>
                     
-                    // Tugmani tiklash
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                    
-                    // Xabarni 5 soniyadan keyin yashirish
-                    setTimeout(() => {
-                        messageDiv.style.display = 'none';
-                    }, 5000);
-                    
-                }).catch(() => {
-                    // Xato
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                    messageDiv.style.display = 'block';
-                    messageDiv.style.background = 'rgba(244, 67, 54, 0.1)';
-                    messageDiv.style.border = '1px solid #f44336';
-                    messageDiv.style.color = '#c62828';
-                    messageDiv.innerHTML = '❌ Xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.';
-                });
-            }, 1500);
-        });
-    }
-});
-</script>
-            
-            <div>
-                <!-- Aloqa Ma'lumotlari -->
-                <div class="card" style="margin-bottom: 30px;">
-                    <h3>📧 Elektron Pochta</h3>
-                    <p style="font-size: 1.2rem; margin: 15px 0;"><strong>mis.ilmsuhbati@gmail.com</strong></p>
-                    <p>Loyiha haqida umumiy savollar va takliflar uchun</p>
-                </div>
-                
-                <!-- To'g'ridan-to'g'ri Bog'lanish -->
-                <div class="card" style="margin-bottom: 30px;">
-                    <h3>📱 To'g'ridan-to'g'ri Bog'lanish</h3>
-                    <p>Quyidagi havolalar orqali to'g'ridan-to'g'ri bog'lanishingiz mumkin:</p>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-                        <a href="https://t.me/Jbahodir" target="_blank" class="btn btn-secondary" style="justify-content: flex-start;">
-                            <i class="fab fa-telegram-plane"></i> Telegram: @Jbahodir
-                        </a>
+                    <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScx_nMDO4PpanTSl_6iKgJen9pHiAk5J20-ZcJTOkri4BamuA/formResponse"
+                          method="POST"
+                          id="misContactForm"
+                          target="_blank">
                         
-                        <a href="https://t.me/MilliyIlmSuhbati" target="_blank" class="btn btn-secondary" style="justify-content: flex-start;">
-                            <i class="fab fa-telegram-plane"></i> MIS Kanal: @MilliyIlmSuhbati
-                        </a>
+                        <!-- Ism -->
+                        <div class="form-group">
+                            <label for="name">Ismingiz *</label>
+                            <input type="text" 
+                                   name="entry.2005620554"
+                                   id="name"
+                                   required
+                                   class="form-control" 
+                                   placeholder="Ism Familiya">
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Elektron Pochta *</label>
+                            <input type="email" 
+                                   name="entry.1065046570"
+                                   id="email"
+                                   required
+                                   class="form-control" 
+                                   placeholder="email@example.com">
+                        </div>
+                        
+                        <!-- Mavzu -->
+                        <div class="form-group">
+                            <label for="subject">Mavzu</label>
+                            <input type="text" 
+                                   name="entry.839337160"
+                                   id="subject"
+                                   class="form-control" 
+                                   placeholder="O'zingizni qiziqtirgan mavzu">
+                        </div>
+                        
+                        <!-- Xabaringiz -->
+                        <div class="form-group">
+                            <label for="message">Xabaringiz yoki G'oyangiz *</label>
+                            <textarea name="entry.1166974658"
+                                      id="message"
+                                      required
+                                      class="form-control" 
+                                      placeholder="Biz bilan ulashmoqchi bo'lgan kreativ g'oyangiz va fikrlaringiz"
+                                      rows="4"></textarea>
+                        </div>
+                        
+                        <!-- O'zim haqimda -->
+                        <div class="form-group">
+                            <label for="about">
+                                <i class="fas fa-user-check" style="margin-right: 8px;"></i>
+                                O'zim haqimda (Volontyorlik uchun)
+                            </label>
+                            <textarea name="entry.839337160"
+                                      id="about"
+                                      class="form-control" 
+                                      placeholder="Agar volontyor bo'lishni istasangiz, o'zingiz haqingizda yozing (ixtisoslik, qiziqishlar)"
+                                      rows="3"></textarea>
+                        </div>
+                        
+                        <!-- Submit button -->
+                        <button type="submit" 
+                                class="btn btn-primary btn-block"
+                                id="submitFormBtn">
+                            <i class="fas fa-paper-plane"></i> Xabarni Yuborish
+                        </button>
+                        
+                        <!-- Form Message -->
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <!-- Email Card -->
+                    <div class="contact-card">
+                        <h3>📧 Elektron Pochta</h3>
+                        <p style="font-size: 1.2rem; margin: 15px 0;"><strong>mis.ilmsuhbati@gmail.com</strong></p>
+                        <p>Loyiha haqida umumiy savollar va takliflar uchun</p>
                     </div>
-                </div>
-                
-                <!-- Hamkorlik -->
-                <div class="card" style="margin-bottom: 30px;">
-                    <h3>🤝 Hamkorlik Takliflari</h3>
-                    <p>Biz quyidagi tashkilotlar bilan hamkorlikka ochiqmiz:</p>
-                    <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
-                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
-                            <i class="fas fa-university" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                            Universitetlar va ilmiy muassasalar
-                        </li>
-                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
-                            <i class="fas fa-graduation-cap" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                            O'quv markazlari va ta'lim platformalari
-                        </li>
-                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
-                            <i class="fas fa-tv" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                            Media tashkilotlari va telekanallar
-                        </li>
-                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
-                            <i class="fas fa-microphone" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                            Nutq so'zlovchi sifatida ishtirok etish
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Maqsadlar -->
-                <div class="card">
-                    <h3>🎯 Maqsadimiz</h3>
-                    <p>2026-yil oxirigacha:</p>
-                    <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
-                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                            <i class="fas fa-check-circle" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                            50+ premium suhbat
-                        </li>
-                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                            <i class="fas fa-check-circle" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                            10,000+ doimiy tomoshabin
-                        </li>
-                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                            <i class="fas fa-check-circle" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                            Xalqaro miqyosda tan olinish
-                        </li>
-                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                            <i class="fas fa-check-circle" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
-                            O'zbek tilida ilmiy kontent standartini o'rnatish
-                        </li>
-                    </ul>
+                    
+                    <!-- Direct Contact Card -->
+                    <div class="contact-card">
+                        <h3>📱 To'g'ridan-to'g'ri Bog'lanish</h3>
+                        <p>Quyidagi havolalar orqali to'g'ridan-to'g'ri bog'lanishingiz mumkin:</p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                            <a href="https://t.me/Jbahodir" target="_blank" class="btn btn-secondary" style="justify-content: flex-start;">
+                                <i class="fab fa-telegram-plane"></i> Telegram: @Jbahodir
+                            </a>
+                            
+                            <a href="https://t.me/MilliyIlmSuhbati" target="_blank" class="btn btn-secondary" style="justify-content: flex-start;">
+                                <i class="fab fa-telegram-plane"></i> MIS Kanal: @MilliyIlmSuhbati
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Partnership Card -->
+                    <div class="contact-card">
+                        <h3>🤝 Hamkorlik Takliflari</h3>
+                        <p>Biz quyidagi tashkilotlar bilan hamkorlikka ochiqmiz:</p>
+                        <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                                <i class="fas fa-university" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
+                                Universitetlar va ilmiy muassasalar
+                            </li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                                <i class="fas fa-graduation-cap" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
+                                O'quv markazlari va ta'lim platformalari
+                            </li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                                <i class="fas fa-tv" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
+                                Media tashkilotlari va telekanallar
+                            </li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                                <i class="fas fa-microphone" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
+                                Nutq so'zlovchi sifatida ishtirok etish
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Goals Card -->
+                    <div class="contact-card">
+                        <h3>🎯 Maqsadimiz</h3>
+                        <p>2026-yil oxirigacha:</p>
+                        <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
+                                50+ premium suhbat
+                            </li>
+                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
+                                10,000+ doimiy tomoshabin
+                            </li>
+                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
+                                Xalqaro miqyosda tan olinish
+                            </li>
+                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-gold); position: absolute; left: 0;"></i>
+                                O'zbek tilida ilmiy kontent standartini o'rnatish
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-logo">MIS</div>
-        <div class="footer-motto">"Fikringni kengaytir - hayotingni o'zgartir"</div>
-        
-        <div class="team-signature">
-            Biz - MIS jamoasi
-        </div>
-        
-        <div style="max-width: 700px; margin: 20px auto;">
-            <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9;">
-                Milliy Ilm Suhbati - O'zbek tilida ilmiy tafakkurni yuksaltirish harakati.
-                O'zbek yoshlarining intellektual salohiyatini oshirish, milliy tafakkurni rivojlantirish 
-                va o'zbek tilida dunyo darajasidagi kontent yaratish uchun birlashgan jamoa.
-            </p>
-        </div>
-        
-        <div class="footer-links">
-            <a href="#home"><i class="fas fa-home"></i> Bosh Sahifa</a>
-            <a href="#about"><i class="fas fa-info-circle"></i> Loyiha</a>
-            <a href="#team"><i class="fas fa-users"></i> Jamoa</a>
-            <a href="#events"><i class="fas fa-calendar-alt"></i> Tadbirlar</a>
-            <a href="#contact"><i class="fas fa-envelope"></i> Aloqa</a>
-        </div>
-        
-        <div class="copyright">
-            © 2024 MIS - Milliy Ilm Suhbati. Barcha huquqlar himoyalangan.<br>
-            MIS Jamoasi tomonidan yaratilgan.
+        <div class="container">
+            <div class="footer-logo">MIS</div>
+            <div class="footer-motto">"Fikringni kengaytir - hayotingni o'zgartir"</div>
+            
+            <div class="team-signature">
+                Biz - UMID PARVOZI
+            </div>
+            
+            <div style="max-width: 700px; margin: 20px auto;">
+                <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9;">
+                    Milliy Ilm Suhbati - O'zbek tilida ilmiy tafakkurni yuksaltirish harakati.
+                    O'zbek yoshlarining intellektual salohiyatini oshirish, milliy tafakkurni rivojlantirish 
+                    va o'zbek tilida dunyo darajasidagi kontent yaratish uchun birlashgan jamoa.
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#home"><i class="fas fa-home"></i> Bosh Sahifa</a>
+                <a href="#about"><i class="fas fa-info-circle"></i> Loyiha</a>
+                <a href="#team"><i class="fas fa-users"></i> Jamoa</a>
+                <a href="#events"><i class="fas fa-calendar-alt"></i> Tadbirlar</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Aloqa</a>
+            </div>
+            
+            <div class="copyright">
+                © 2024 MIS - Milliy Ilm Suhbati. Barcha huquqlar himoyalangan.<br>
+                UMID PARVOZI Jamoasi tomonidan yaratilgan.
+            </div>
         </div>
     </footer>
-    
+
     <!-- JAVASCRIPT -->
     <script>
-        // MOBILE MENU TOGGLE
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // NAVBAR SCROLL EFFECT VA ACTIVE LINK
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        document.addEventListener('DOMContentLoaded', function() {
+            // ====== MOBILE MENU TOGGLE ======
+            const menuBtn = document.getElementById('menuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (menuBtn && navLinks) {
+                menuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    menuBtn.innerHTML = navLinks.classList.contains('active') 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
             }
             
-            // Active nav link highlight
-            const sections = document.querySelectorAll('.page');
-            const navLinksAll = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
+            // ====== NAVBAR SCROLL EFFECT ======
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
+                
+                // Active nav link highlight
+                const sections = document.querySelectorAll('section');
+                const navLinksAll = document.querySelectorAll('.nav-link');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinksAll.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
             });
             
-            navLinksAll.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // SMOOTH SCROLL FOR NAV LINKS (FIXED)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    navLinks.classList.remove('active');
-                    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            // ====== SMOOTH SCROLL ======
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
                     
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (navLinks) {
+                            navLinks.classList.remove('active');
+                            if (menuBtn) {
+                                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                            }
+                        }
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // ====== EVENTS SLIDER ======
+            const eventSlider = document.getElementById('eventSlider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (eventSlider && prevBtn && nextBtn) {
+                let currentSlide = 0;
+                const cardWidth = 330; // card width + gap
+                const totalSlides = 4;
+                
+                nextBtn.addEventListener('click', () => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlider();
+                });
+                
+                prevBtn.addEventListener('click', () => {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateSlider();
+                });
+                
+                function updateSlider() {
+                    eventSlider.scrollTo({
+                        left: currentSlide * cardWidth,
                         behavior: 'smooth'
                     });
                 }
-            });
-        });
-        
-        // FORM SUBMISSION
-        document.getElementById('submitForm').addEventListener('click', function() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (!name || !email || !message) {
-                alert('Iltimos, barcha maydonlarni to\'ldiring!');
-                return;
+                
+                // Auto slide every 5 seconds
+                setInterval(() => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlider();
+                }, 5000);
             }
             
-            alert('Rahmat! Xabaringiz qabul qilindi. Tez orada siz bilan bog\'lanamiz.');
+            // ====== GOOGLE FORMS SUBMISSION ======
+            const contactForm = document.getElementById('misContactForm');
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = document.getElementById('submitFormBtn');
             
-            // Reset form
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('subject').value = '';
-            document.getElementById('message').value = '';
+            if (contactForm && formMessage && submitBtn) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const originalText = submitBtn.innerHTML;
+                    
+                    // Show loading
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Yuborilmoqda...';
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.7';
+                    
+                    // Prepare form data
+                    const formData = new FormData(this);
+                    
+                    // Simulate delay for UX
+                    setTimeout(() => {
+                        // Submit to Google Forms
+                        fetch(this.action, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            body: new URLSearchParams(formData)
+                        }).then(() => {
+                            // Success
+                            formMessage.className = 'form-message success';
+                            formMessage.innerHTML = '<i class="fas fa-check-circle"></i> Rahmat! Xabaringiz Google Forms orqali qabul qilindi.';
+                            formMessage.style.display = 'block';
+                            
+                            // Reset form
+                            contactForm.reset();
+                            
+                            // Restore button
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.opacity = '1';
+                            
+                            // Hide message after 5 seconds
+                            setTimeout(() => {
+                                formMessage.style.display = 'none';
+                            }, 5000);
+                            
+                        }).catch((error) => {
+                            // Error
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.opacity = '1';
+                            
+                            formMessage.className = 'form-message error';
+                            formMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.';
+                            formMessage.style.display = 'block';
+                            
+                            console.error('Form submission error:', error);
+                        });
+                    }, 1500);
+                });
+            }
+            
+            // ====== VIEW ALL EVENTS BUTTON (if exists) ======
+            const viewAllEvents = document.getElementById('viewAllEvents');
+            if (viewAllEvents) {
+                viewAllEvents.addEventListener('click', function() {
+                    alert('Tez kunda! Barcha tadbirlar ro\'yxati yaqin orada yangilanadi.');
+                });
+            }
         });
-        
-        // TADBIRLAR SLIDER
-        const eventSlider = document.getElementById('eventSlider');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        
-        let currentSlide = 0;
-        
-        nextBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % 4;
-            updateSlider();
-        });
-        
-        prevBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + 4) % 4;
-            updateSlider();
-        });
-        
-        function updateSlider() {
-            const cardWidth = 320 + 30; // card width + gap
-            eventSlider.scrollTo({
-                left: currentSlide * cardWidth,
-                behavior: 'smooth'
-            });
-        }
-        
-        // VIEW ALL EVENTS BUTTON
-        document.getElementById('viewAllEvents').addEventListener('click', function() {
-            alert('Tez kunda! Barcha tadbirlar ro\'yxati yaqin orada yangilanadi.');
-        });
-        
-        // CARD ANIMATION ON SCROLL
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all cards
-        document.querySelectorAll('.card, .team-card, .event-showcase-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-        
-        // STATISTICS COUNTER
-        function animateCounter() {
-            const counters = document.querySelectorAll('#home .card .card-icon');
-            counters.forEach((counter, index) => {
-                const target = [3, 20, 100, 50][index];
-                let count = 0;
-                const speed = 2000 / target;
-                
-                const updateCount = () => {
-                    if (count < target) {
-                        count++;
-                        counter.parentElement.querySelector('h3').innerHTML = 
-                            `<div style="font-size: 3.5rem; color: var(--accent-gold); font-weight: 800;">${count}</div>`;
-                        setTimeout(updateCount, speed);
-                    }
-                };
-                
-                updateCount();
-            });
-        }
-        
-        // Start counter when stats section is in view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        statsObserver.observe(document.querySelector('#home'));
     </script>
 </body>
 </html>
