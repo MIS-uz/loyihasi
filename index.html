@@ -6,117 +6,141 @@
     <title>MIS - Milliy Ilm Suhbati</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ASOSIY O'ZGARUVCHILAR */
+        /* ========== ASOSIY CSS KODI ========== */
         :root {
             --primary-red: #c22822;
             --accent-gold: #deb05a;
             --dark-bg: #0a0a0a;
             --light-text: #ffffff;
-            --gray-text: #e0e0e0;
+            --gray-text: #cccccc;
             --card-bg: #1a1a1a;
-            --header-bg-scrolled: rgba(194, 40, 34, 0.88); /* SHAFFOFROQ */
         }
 
-        /* UMUMIY USLUB */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
-            background: var(--dark-bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
             color: var(--light-text);
             line-height: 1.6;
             overflow-x: hidden;
         }
+
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        section { padding: 80px 0; }
 
-        /* ========== NAVBAR (TO'G'IRLANDI) ========== */
+        /* ========== NAVBAR (TO'G'RILANDI) ========== */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            background-color: rgba(194, 40, 34, 0.85);
+            padding: 15px 0;
             z-index: 1000;
-            background-color: var(--primary-red);
-            padding: 20px 0;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-        .navbar.scrolled {
-            padding: 12px 0; /* BO'YI KICHAYDI */
-            background-color: var(--header-bg-scrolled); /* SHAFFOFROQ */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
         }
+
+        .navbar.scrolled {
+            padding: 8px 0;
+            background-color: rgba(194, 40, 34, 0.92);
+        }
+
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        /* LOGO (ANIQ KO'RINADI) */
+
+        /* LOGO (TO'G'RILANDI) */
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
         }
+
         .logo-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 3px solid var(--accent-gold);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold));
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-red), #a02020);
-            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 2px solid var(--accent-gold);
         }
+
         .logo-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 8px;
-            filter: brightness(0) invert(1); /* OQ LOGO */
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
-        .logo:hover .logo-img { transform: rotate(5deg) scale(1.05); }
-        .logo-text { display: flex; flex-direction: column; }
+
+        .logo:hover .logo-img {
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 0 15px rgba(222, 176, 90, 0.4);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo-main {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            line-height: 1;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-text);
+            letter-spacing: 0.5px;
         }
+
         .logo-sub {
             font-size: 0.75rem;
-            color: var(--light-text);
-            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
             text-transform: uppercase;
-            opacity: 0.9;
         }
-        .navbar.scrolled .logo-img { width: 40px; height: 40px; }
-        .navbar.scrolled .logo-main { font-size: 1.5rem; }
-        /* NAVLINKLAR */
+
+        /* NAVIGATSIYA LINKLARI */
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 25px;
         }
+
         .nav-link {
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 8px 0;
+            font-weight: 500;
+            font-size: 0.95rem;
             position: relative;
-            transition: color 0.3s ease;
+            padding: 5px 0;
+            transition: all 0.3s ease;
         }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -124,249 +148,392 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-gold);
+            background-color: var(--accent-gold);
             transition: width 0.3s ease;
         }
-        .nav-link:hover { color: var(--accent-gold); }
-        .nav-link:hover::after { width: 100%; }
-        .mobile-menu-btn { display: none; }
 
-        /* ========== HERO (RASM VA YOZUV PROPORSIYASI TO'G'IRLANDI) ========== */
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* ========== HERO SECTION (TO'G'RILANDI) ========== */
         .hero-section {
-            min-height: 100vh;
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            background: 
+                linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.8)),
+                url('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
-            padding: 120px 20px 80px;
-            background: 
-                linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)),
-                url('https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            padding: 0 20px;
         }
+
         .hero-content {
             max-width: 900px;
             width: 100%;
+            padding: 20px;
             z-index: 2;
         }
+
         .hero-title {
-            font-size: 3.2rem; /* HAJMI TO'G'IRLANDI */
-            font-weight: 800;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 20px;
-            color: var(--light-text);
-            line-height: 1.1;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             animation: fadeInUp 1s ease;
         }
+
         .hero-subtitle {
-            font-size: 2.2rem; /* HAJMI TO'G'IRLANDI */
+            font-size: 1.8rem;
             color: var(--accent-gold);
             margin-bottom: 15px;
+            line-height: 1.3;
             animation: fadeInUp 1s ease 0.2s both;
+            font-weight: 600;
         }
+
         .hero-description {
-            font-size: 1.3rem; /* HAJMI TO'G'IRLANDI */
+            font-size: 1.2rem;
             color: var(--gray-text);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            line-height: 1.6;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 1s ease 0.4s both;
         }
+
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
             animation: fadeInUp 1s ease 0.6s both;
         }
+
         .btn {
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
             font-size: 1rem;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
+            transition: all 0.3s ease;
             cursor: pointer;
+            border: none;
             display: inline-block;
         }
+
         .btn-primary {
-            background: var(--accent-gold);
+            background-color: var(--accent-gold);
             color: var(--dark-bg);
-            box-shadow: 0 6px 20px rgba(222, 176, 90, 0.4);
         }
+
         .btn-primary:hover {
-            background: white;
+            background-color: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(222, 176, 90, 0.5);
+            box-shadow: 0 5px 15px rgba(222, 176, 90, 0.3);
         }
+
         .btn-secondary {
-            background: transparent;
+            background-color: transparent;
             color: white;
             border: 2px solid var(--accent-gold);
         }
+
         .btn-secondary:hover {
-            background: var(--accent-gold);
+            background-color: var(--accent-gold);
             color: var(--dark-bg);
             transform: translateY(-3px);
         }
-        /* STATS (BO'LIMLAR KATTA BO'LIB KO'RINADI) */
+
         .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 70px auto 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
             animation: fadeInUp 1s ease 0.8s both;
         }
+
         .stat-item {
             text-align: center;
-            padding: 25px 15px;
+            padding: 15px;
+            min-width: 120px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(222, 176, 90, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
-        .stat-item:hover { transform: translateY(-5px); }
+
+        .stat-item:hover {
+            background: rgba(222, 176, 90, 0.1);
+            transform: translateY(-5px);
+        }
+
         .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: var(--accent-gold);
             display: block;
             line-height: 1;
-            margin-bottom: 10px;
-        }
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--light-text);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* ========== BO'LIM SARLAVHALARI (KATTA VA ANIQ) ========== */
+        .stat-label {
+            font-size: 0.9rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        /* ========== BARCHA BO'LIMLAR ========== */
+        section {
+            padding: 80px 0;
+        }
+
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
+
         .section-title {
-            font-size: 2.8rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
             color: var(--accent-gold);
-            margin-bottom: 20px;
             position: relative;
             display: inline-block;
         }
+
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-            border-radius: 2px;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
         }
+
         .section-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--gray-text);
-            max-width: 700px;
-            margin: 30px auto 0;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         /* ========== ABOUT SECTION ========== */
-        .about-section { background: var(--card-bg); }
+        .about-section {
+            background-color: var(--card-bg);
+        }
+
         .about-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
+
         .about-card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 35px;
-            border-radius: 20px;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
             border: 1px solid rgba(222, 176, 90, 0.1);
-            transition: transform 0.3s ease, border-color 0.3s ease;
         }
+
         .about-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             border-color: var(--accent-gold);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+
         .about-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
             color: var(--accent-gold);
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
-        .about-card p, .rule-list li { color: var(--gray-text); line-height: 1.7; }
+
+        .about-card h3 i {
+            font-size: 1.2rem;
+        }
+
+        .about-card p {
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
         .rule-list {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 15px;
         }
+
         .rule-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            color: var(--gray-text);
         }
-        .rule-list li:before { content: '✓'; color: var(--accent-gold); font-weight: bold; }
+
+        .rule-list li:before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
 
         /* ========== FORMAT SECTION ========== */
+        .format-section {
+            background-color: var(--dark-bg);
+        }
+
         .format-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
+
         .format-card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 35px;
-            border-radius: 20px;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
             border: 1px solid rgba(222, 176, 90, 0.1);
-            transition: transform 0.3s ease;
         }
-        .format-card:hover { transform: translateY(-8px); }
-        .format-card h3 { font-size: 1.6rem; color: var(--accent-gold); margin-bottom: 20px; }
-        .format-card p { color: var(--gray-text); margin-bottom: 15px; line-height: 1.7; }
+
+        .format-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .format-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+        }
+
+        .format-card p {
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .schedule-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .schedule-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray-text);
+        }
 
         /* ========== TEAM SECTION ========== */
-        .team-section { background: var(--card-bg); }
+        .team-section {
+            background-color: var(--card-bg);
+        }
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: 30px;
+            margin-bottom: 50px;
         }
+
         .team-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            border-radius: 10px;
             overflow: hidden;
+            transition: all 0.3s ease;
             border: 1px solid rgba(222, 176, 90, 0.1);
-            transition: transform 0.3s ease;
         }
-        .team-card:hover { transform: translateY(-8px); }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
         .team-img-container {
-            height: 280px;
+            position: relative;
+            height: 250px;
             overflow: hidden;
         }
+
         .team-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: all 0.4s ease;
         }
-        .team-card:hover .team-img { transform: scale(1.05); }
-        .team-info { padding: 30px; }
-        .team-name { font-size: 1.6rem; color: var(--accent-gold); margin-bottom: 5px; }
-        .team-role { color: white; font-weight: 600; margin-bottom: 15px; font-size: 1rem; }
-        .team-bio { color: var(--gray-text); margin-bottom: 20px; line-height: 1.7; }
-        .team-social { display: flex; gap: 15px; }
+
+        .team-card:hover .team-img {
+            transform: scale(1.05);
+        }
+
+        .team-info {
+            padding: 25px;
+        }
+
+        .team-name {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+        }
+
+        .team-role {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .team-bio {
+            color: var(--gray-text);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 10px;
+        }
+
         .team-social a {
-            width: 40px; height: 40px;
+            width: 35px;
+            height: 35px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
@@ -376,78 +543,132 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        .team-social a:hover { background: var(--accent-gold); color: var(--dark-bg); transform: translateY(-3px); }
+
+        .team-social a:hover {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+        }
+
         .team-quote {
             background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 20px;
-            border-left: 5px solid var(--accent-gold);
-            max-width: 900px;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-gold);
+            max-width: 800px;
             margin: 0 auto;
         }
+
         .quote-text {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-style: italic;
+            line-height: 1.6;
             color: var(--gray-text);
-            line-height: 1.8;
             text-align: center;
         }
 
         /* ========== EVENTS SECTION ========== */
+        .events-section {
+            background-color: var(--dark-bg);
+        }
+
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
+
         .event-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            border-radius: 10px;
             overflow: hidden;
+            transition: all 0.3s ease;
             border: 1px solid rgba(222, 176, 90, 0.1);
-            transition: transform 0.3s ease;
         }
-        .event-card:hover { transform: translateY(-8px); }
-        .event-header { padding: 25px 25px 15px; }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .event-header {
+            padding: 25px 25px 15px;
+        }
+
         .event-date {
-            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold));
+            background: var(--primary-red);
             color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
+            padding: 6px 15px;
+            border-radius: 20px;
             display: inline-block;
-            font-weight: 700;
-            font-size: 0.9rem;
+            font-weight: 600;
+            font-size: 0.85rem;
             margin-bottom: 15px;
         }
-        .event-title { font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 10px; line-height: 1.3; }
+
+        .event-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+
+        .event-category {
+            color: var(--gray-text);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
         .event-speaker {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
+
         .speaker-avatar {
-            width: 50px; height: 50px;
-            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold));
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
+            background: var(--accent-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--dark-bg);
             font-weight: bold;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            font-size: 1.1rem;
         }
-        .speaker-info h4 { font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 5px; }
-        .speaker-info p { color: var(--gray-text); font-size: 0.9rem; }
-        .event-content { padding: 0 25px 25px; }
-        .event-description { color: var(--gray-text); margin-bottom: 20px; line-height: 1.7; }
+
+        .speaker-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+        }
+
+        .speaker-info p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        .event-content {
+            padding: 0 25px 25px;
+        }
+
+        .event-description {
+            color: var(--gray-text);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
         .event-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .meta-item {
             display: flex;
             align-items: center;
@@ -455,170 +676,268 @@
             color: var(--gray-text);
             font-size: 0.9rem;
         }
+
         .event-btn {
-            padding: 10px 25px;
+            padding: 8px 20px;
             background: var(--primary-red);
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 20px;
             font-weight: 600;
             font-size: 0.9rem;
             transition: all 0.3s ease;
             display: inline-block;
         }
+
         .event-btn:hover {
             background: var(--accent-gold);
             color: var(--dark-bg);
-            transform: translateY(-3px);
         }
 
-        /* ========== CONTACT SECTION ========== */
-        .contact-section { background: var(--card-bg); }
+        /* ========== CONTACT SECTION (TO'G'RILANDI) ========== */
+        .contact-section {
+            background-color: var(--card-bg);
+        }
+
         .contact-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 50px;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
-        /* GOOGLE FORM ULANADI */
+
         .contact-form {
             background: rgba(255, 255, 255, 0.05);
-            padding: 35px;
-            border-radius: 20px;
+            padding: 30px;
+            border-radius: 10px;
             border: 1px solid rgba(222, 176, 90, 0.1);
         }
-        .contact-form iframe {
-            width: 100%;
-            height: 850px; /* FORM NARXIGA MOS */
-            border: none;
-            border-radius: 10px;
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--accent-gold);
+            text-align: center;
         }
-        .contact-info { display: flex; flex-direction: column; gap: 25px; }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--light-text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
         .info-card {
             display: flex;
             align-items: flex-start;
             gap: 20px;
             padding: 25px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            border-radius: 10px;
             border: 1px solid rgba(222, 176, 90, 0.1);
         }
+
         .info-icon {
-            width: 55px; height: 55px;
-            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold));
+            width: 50px;
+            height: 50px;
+            background: var(--primary-red);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
-        .info-content h3 { font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 10px; }
-        .info-content p, .info-content a { color: var(--gray-text); line-height: 1.6; }
-        .info-content a {
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+
+        .info-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
         }
-        .info-content a:hover { color: var(--accent-gold); }
+
+        .info-content p {
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .info-content a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .info-content a:hover {
+            color: white;
+        }
+
         .cooperation-list {
             list-style: none;
             margin-top: 15px;
         }
+
         .cooperation-list li {
             padding: 10px 0;
             color: var(--gray-text);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        .cooperation-list li:before {
+            content: '•';
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        .social-links h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+            text-align: center;
+        }
+
         .social-icons {
             display: flex;
+            justify-content: center;
             gap: 15px;
-            margin-top: 15px;
         }
+
         .social-icon {
-            width: 45px; height: 45px;
-            background: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gray-text);
-            text-decoration: none;
             font-size: 1.2rem;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
+
         .social-icon:hover {
             background: var(--accent-gold);
             color: var(--dark-bg);
-            transform: translateY(-5px);
         }
 
-        /* ========== FOOTER (LOGOSI ANIQ) ========== */
+        /* ========== FOOTER (TO'G'RILANDI) ========== */
         .footer {
-            background: linear-gradient(to bottom, #0a0a0a, #000);
-            padding: 60px 0 30px;
+            background: var(--dark-bg);
+            padding: 50px 0 25px;
             border-top: 1px solid rgba(222, 176, 90, 0.2);
         }
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 35px;
+            margin-bottom: 35px;
         }
+
         .footer-logo {
             display: flex;
             align-items: center;
             gap: 15px;
         }
+
         .footer-logo-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 3px solid var(--accent-gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold));
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-red), #a02020);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--accent-gold);
         }
+
         .footer-logo-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 8px;
-            filter: brightness(0) invert(1); /* OQ LOGO */
+            width: 28px;
+            height: 28px;
+            object-fit: cover;
+            border-radius: 4px;
         }
-        .footer-logo-text { display: flex; flex-direction: column; }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
         .footer-logo-main {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            line-height: 1;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
         }
+
         .footer-logo-sub {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-        .footer-links h3, .footer-goals h3 {
-            font-size: 1.3rem;
+            font-size: 0.8rem;
             color: var(--accent-gold);
-            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+        }
+
         .footer-links a {
-            display: block;
             color: var(--gray-text);
             text-decoration: none;
-            margin-bottom: 12px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
-        .footer-links a:hover { color: var(--accent-gold); transform: translateX(5px); }
-        .goal-list { list-style: none; }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-goals h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .goal-list {
+            list-style: none;
+        }
+
         .goal-list li {
             padding: 10px 0;
             color: var(--gray-text);
@@ -626,89 +945,134 @@
             align-items: center;
             gap: 10px;
         }
-        .goal-list li:before { content: '🎯'; }
+
+        .goal-list li:before {
+            content: '✓';
+            color: var(--accent-gold);
+        }
+
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--gray-text);
             font-size: 0.9rem;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
-        /* ========== ANIMATSIYA ========== */
+        /* ========== ANIMATSIYALAR ========== */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* ========== MOBIL UCHUN (TELEFONGA MOS) ========== */
-        @media (max-width: 992px) {
-            .hero-title { font-size: 2.7rem; }
-            .hero-subtitle { font-size: 1.9rem; }
-            .section-title { font-size: 2.4rem; }
-        }
+        /* ========== RESPONSIVE DESIGN (TO'G'RILANDI) ========== */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: flex;
-                flex-direction: column;
-                gap: 5px;
-                cursor: pointer;
-                padding: 8px;
             }
-            .mobile-menu-btn span {
-                width: 25px;
-                height: 3px;
-                background: white;
-                border-radius: 2px;
-                transition: all 0.3s ease;
-            }
+            
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: 0;
                 width: 100%;
-                background: rgba(194, 40, 34, 0.98);
-                backdrop-filter: blur(10px);
+                background-color: rgba(194, 40, 34, 0.95);
                 flex-direction: column;
                 align-items: center;
                 padding: 20px 0;
                 gap: 0;
                 transform: translateY(-100%);
                 opacity: 0;
-                transition: all 0.4s ease;
+                transition: all 0.3s ease;
                 z-index: 999;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             }
+            
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
             }
-            .nav-links li { width: 100%; text-align: center; }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
             .nav-link {
                 display: block;
-                padding: 18px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
-            .hero-title { font-size: 2.3rem; }
-            .hero-subtitle { font-size: 1.6rem; }
-            .hero-description { font-size: 1.1rem; }
-            .stats-container { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .section-title { font-size: 2rem; }
-            .section-subtitle { font-size: 1.1rem; }
-            .about-content, .format-grid, .team-grid, .events-grid { grid-template-columns: 1fr; }
-            .contact-content { grid-template-columns: 1fr; gap: 35px; }
-            .contact-form iframe { height: 900px; }
-            .footer-content { grid-template-columns: 1fr; gap: 35px; text-align: center; }
-            .footer-logo { justify-content: center; }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stat-item {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.95rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
+
         @media (max-width: 480px) {
-            .hero-title { font-size: 2rem; }
-            .hero-subtitle { font-size: 1.4rem; }
-            .hero-description { font-size: 1rem; }
-            .stats-container { grid-template-columns: 1fr; }
-            .section-title { font-size: 1.8rem; }
-            .btn { padding: 14px 28px; font-size: 0.95rem; }
-            .cta-buttons { flex-direction: column; align-items: center; gap: 15px; }
+            .hero-title {
+                font-size: 1.7rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .event-meta {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .event-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -725,6 +1089,7 @@
                     <span class="logo-sub">Milliy Ilm Suhbati</span>
                 </div>
             </a>
+            
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link">Bosh Sahifa</a></li>
                 <li><a href="#about" class="nav-link">Loyiha Haqida</a></li>
@@ -733,13 +1098,16 @@
                 <li><a href="#events" class="nav-link">Kelgusi Tadbirlar</a></li>
                 <li><a href="#contact" class="nav-link">Aloqa</a></li>
             </ul>
+            
             <div class="mobile-menu-btn">
-                <span></span><span></span><span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section id="home" class="hero-section">
         <div class="hero-content">
             <h1 class="hero-title">Fikringni kengaytir - hayotingni o'zgartir</h1>
@@ -751,28 +1119,47 @@
                 <a href="#events" class="btn btn-primary">Kelgusi Tadbirlar</a>
                 <a href="#about" class="btn btn-secondary">Loyiha Haqida</a>
             </div>
+            
             <div class="stats-container">
-                <div class="stat-item"><span class="stat-number">2</span><span class="stat-label">Yaratuvchi</span></div>
-                <div class="stat-item"><span class="stat-number">20</span><span class="stat-label">Daqiqa Format</span></div>
-                <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">O'zbek Tili</span></div>
-                <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Dildan Suhbat</span></div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Yaratuvchi</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">20</span>
+                    <span class="stat-label">Daqiqa Format</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">O'zbek Tili</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Dildan Suhbat</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT SECTION -->
     <section id="about" class="about-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Loyiha Haqida</h2>
                 <p class="section-subtitle">MIS - O'zbek tilida ilmiy suhbat madaniyatini yaratuvchi premium platforma</p>
             </div>
+            
             <div class="about-content">
                 <div class="about-card">
                     <h3><i class="fas fa-question-circle"></i> MIS Nima?</h3>
-                    <p>MIS - Milliy Ilm Suhbati - bu TED Talk formatida, lekin o'zbekcha va o'zbek milliy ruhidagi intellektual muhokama platformasi. Biz har hil mavzularni chuqur tahlil qilib, oddiy tushunarli tilda ommaga yetkazamiz.</p>
-                    <p>Maqsadimiz - odamlarga dunyoni o'zimizning milliy o'zbek tilimiz bilan chuqur o'rganishga va uni o'zlari uchun yangidan kashf etishga yordam berish.</p>
+                    <p>
+                        MIS - Milliy Ilm Suhbati - bu TED Talk formatida, lekin o'zbekcha va o'zbek milliy ruhidagi intellektual muhokama platformasi.
+                    </p>
+                    <p>
+                        Maqsadimiz - odamlarga dunyoni o'zimizning milliy o'zbek tilimiz bilan chuqur o'rganishga yordam berish.
+                    </p>
                 </div>
+                
                 <div class="about-card">
                     <h3><i class="fas fa-ban"></i> Qat'iy Qoidalar</h3>
                     <ul class="rule-list">
@@ -784,56 +1171,72 @@
                         <li>Jamoat qoidalariga qarshi mavzu yo'q</li>
                     </ul>
                 </div>
+                
                 <div class="about-card">
                     <h3><i class="fas fa-book"></i> Adabiyot va Madaniyat</h3>
-                    <p>Har bir nutqda auditoriyaga hurmat bilan murojaat qilinadi. Mavzular faktlarga asoslangan holda chuqur tahlil qilinadi. Subyektiv fikr alohida bildiriladi.</p>
-                    <p>Nutqlar jo'shqinlik va kayfiyat bilan, professional prezentatsiya asosida olib boriladi. Har bir dildan suhbatda auditoriya "ilm-fan shaydolari" deb ataladi.</p>
+                    <p>
+                        Har bir nutqda auditoriyaga hurmat bilan murojaat qilinadi. Mavzular faktlarga asoslangan holda chuqur tahlil qilinadi.
+                    </p>
+                    <p>
+                        Nutqlar jo'shqinlik va kayfiyat bilan, professional prezentatsiya asosida olib boriladi.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FORMAT -->
+    <!-- FORMAT SECTION -->
     <section id="format" class="format-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Suhbat Formati</h2>
                 <p class="section-subtitle">MIS suhbatlarining tuzilishi va mazmuni</p>
             </div>
+            
             <div class="format-grid">
                 <div class="format-card">
                     <h3>Davomiylik va Struktura</h3>
                     <p><strong>20 daqiqa:</strong> Har bir nutq aniq 20 daqiqa davom etadi.</p>
                     <p><strong>1-2 mavzu:</strong> Bir suhbatda 1 yoki 2 ta mavzu yoritiladi.</p>
                     <p><strong>Auditoriya ishtiroki:</strong> Mavzu boshlanishidan oldin umumiy savol beriladi.</p>
-                    <p><strong>Tahlil metodologiyasi:</strong> 1. Umumiy fakt 2. Auditoriya fikri 3. Ilmiy isbot 4. Subyektiv fikr</p>
                 </div>
+                
                 <div class="format-card">
                     <h3>Nutq Boshlanishi</h3>
-                    <p>"Assalomu alaykum, ilm-fan shaydolari! Men [Ism Familiya]. Bugun men sizlar bilan mana shu mavzuni birga tahlil qilmoqchiman..."</p>
-                    <p>Nutqning oxirida esa: "Bu dunyo yani Alloh yaratgan dunyoning har tomonlama qirralari ko'p. Bularni tahlil qilishga va o'rganish bizni... yordam beradi o'zimizning ona tilimizda."</p>
-                    <p>Va yakun: "Hech qachon unutmanglar, bir yutamiz. Sog' omon bo'ling, omon bo'ling, o'zingizning dunyoyingizni yarating. Xayr!"</p>
+                    <p>
+                        "Assalomu alaykum, ilm-fan shaydolari! Men [Ism Familiya]. Bugun men sizlar bilan mana shu mavzuni birga tahlil qilmoqchiman..."
+                    </p>
                 </div>
+                
                 <div class="format-card">
                     <h3>Dastur Jadvali</h3>
-                    <ul class="rule-list">
-                        <li><strong>Asosiy suhbatlar:</strong> Har oy 4 ta premium suhbat</li>
-                        <li><strong>Kichik ma'lumotlar:</strong> 3 kunda bir qiziqarli fakt yoki tahlil</li>
-                        <li><strong>Jonli efirlar:</strong> Oylik ochiq suhbatlar</li>
-                        <li><strong>Mavzu tanlash:</strong> Auditoriya takliflari asosida</li>
+                    <ul class="schedule-list">
+                        <li>
+                            <span>Asosiy suhbatlar</span>
+                            <span>Har oy 4 ta</span>
+                        </li>
+                        <li>
+                            <span>Kichik ma'lumotlar</span>
+                            <span>3 kunda bir</span>
+                        </li>
+                        <li>
+                            <span>Jonli efirlar</span>
+                            <span>Oylik ochiq suhbatlar</span>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TEAM -->
+    <!-- TEAM SECTION -->
     <section id="team" class="team-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">MIS Jamoasi</h2>
                 <p class="section-subtitle">MIS loyihasini yaratgan 2 ta yosh ijodkor</p>
             </div>
+            
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-img-container">
@@ -842,7 +1245,9 @@
                     <div class="team-info">
                         <h3 class="team-name">Bahodir Jo'rayev</h3>
                         <p class="team-role">Loyiha Asoschisi & Strategik Rahbar</p>
-                        <p class="team-bio">MIS loyihasining asoschisi, umumiy strategiya va kontent siyosati. 5 yillik tadqiqotchi, iqtisodchi. 50+ dildan suhbatlar olib borgan. O'zbek yoshlarini mustaqil fikrlashga o'rgatish maqsadida.</p>
+                        <p class="team-bio">
+                            MIS loyihasining asoschisi, umumiy strategiya va kontent siyosati. 5 yillik tadqiqotchi, iqtisodchi.
+                        </p>
                         <div class="team-social">
                             <a href="https://t.me/Jbahodir" target="_blank"><i class="fab fa-telegram"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -850,6 +1255,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="team-card">
                     <div class="team-img-container">
                         <img src="loyiha.jpg" alt="Behruz Noraliyev" class="team-img">
@@ -857,7 +1263,9 @@
                     <div class="team-info">
                         <h3 class="team-name">Behruz Noraliyev</h3>
                         <p class="team-role">Loyiha Asoschisi & Strategik Rahbar</p>
-                        <p class="team-bio">MIS loyihasining asoschisi, umumiy strategiya va kontent siyosati. AI mutaxassisi, 3 yillik tajriba. O'zbekistonda sun'iy intellektni rivojlantirish bo'yicha loyihalar olib boradi. Tilshunoslik va madaniyatni rivojlantirishga hissa qo'shadi.</p>
+                        <p class="team-bio">
+                            MIS loyihasining asoschisi, umumiy strategiya va kontent siyosati. AI mutaxassisi, 3 yillik tajriba.
+                        </p>
                         <div class="team-social">
                             <a href="https://t.me/behruznoraliyev" target="_blank"><i class="fab fa-telegram"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -866,19 +1274,23 @@
                     </div>
                 </div>
             </div>
+            
             <div class="team-quote">
-                <p class="quote-text">"Biz - MIS. O'zbek yoshlarining intellektual salohiyatini oshirish, milliy tafakkurni rivojlantirish va o'zbek tilida dunyo darajasidagi kontent yaratish uchun birlashgan jamoa. Bizning ishimiz - ilmdan, madaniyatdan va milliy g'ururdan iborat."</p>
+                <p class="quote-text">
+                    "Biz - MIS. O'zbek yoshlarining intellektual salohiyatini oshirish, milliy tafakkurni rivojlantirish va o'zbek tilida dunyo darajasidagi kontent yaratish uchun birlashgan jamoa."
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- EVENTS -->
+    <!-- EVENTS SECTION -->
     <section id="events" class="events-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Kelgusi Tadbirlar</h2>
                 <p class="section-subtitle">MIS platformasidagi yaqin suhbat va tadbirlar</p>
             </div>
+            
             <div class="events-grid">
                 <div class="event-card">
                     <div class="event-header">
@@ -893,13 +1305,18 @@
                         </div>
                     </div>
                     <div class="event-content">
-                        <p class="event-description">Sun'iy intellektning insoniyatga ta'siri va kelajakdagi o'rni. AI texnologiyalari bizning hayotimizni qanday o'zgartirayotgani. Start-up'lar va yangi kasblar.</p>
+                        <p class="event-description">
+                            Sun'iy intellektning insoniyatga ta'siri va kelajakdagi o'rni. AI texnologiyalari bizning hayotimizni qanday o'zgartirayotgani.
+                        </p>
                         <div class="event-meta">
-                            <div class="meta-item"><i class="far fa-clock"></i> 20 daqiqa</div>
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i> 20 daqiqa
+                            </div>
                             <a href="#contact" class="event-btn">Dildan suhbat</a>
                         </div>
                     </div>
                 </div>
+                
                 <div class="event-card">
                     <div class="event-header">
                         <div class="event-date">5-yanvar • Adabiyot</div>
@@ -913,13 +1330,18 @@
                         </div>
                     </div>
                     <div class="event-content">
-                        <p class="event-description">Zamonaviy o'zbek adabiyoti tendensiyalari va yangi avlod adiblari. Klassika va zamonaviylik uyg'unligi. O'zbek tilining global rivoji.</p>
+                        <p class="event-description">
+                            Zamonaviy o'zbek adabiyoti tendensiyalari va yangi avlod adiblari. Klassika va zamonaviylik uyg'unligi.
+                        </p>
                         <div class="event-meta">
-                            <div class="meta-item"><i class="far fa-clock"></i> 20 daqiqa</div>
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i> 20 daqiqa
+                            </div>
                             <a href="#contact" class="event-btn">Dildan suhbat</a>
                         </div>
                     </div>
                 </div>
+                
                 <div class="event-card">
                     <div class="event-header">
                         <div class="event-date">15-yanvar • Biznes</div>
@@ -933,29 +1355,13 @@
                         </div>
                     </div>
                     <div class="event-content">
-                        <p class="event-description">Biznes ekotizim va yoshlar imkoniyatlari. O'zbekistonda start-up rivojlanishi va moliyalashtirish manbalari. Muvaffaqiyatli start-up'larning sirlari.</p>
+                        <p class="event-description">
+                            Biznes ekotizim va yoshlar imkoniyatlari. O'zbekistonda start-up rivojlanishi va moliyalashtirish manbalari.
+                        </p>
                         <div class="event-meta">
-                            <div class="meta-item"><i class="far fa-clock"></i> 20 daqiqa</div>
-                            <a href="#contact" class="event-btn">Dildan suhbat</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-header">
-                        <div class="event-date">1-fevral • Ekologiya</div>
-                        <h3 class="event-title">Iqlim O'zgarishi: O'zbekiston Tahdidlari</h3>
-                        <div class="event-speaker">
-                            <div class="speaker-avatar">EN</div>
-                            <div class="speaker-info">
-                                <h4>Elnora Niyazova</h4>
-                                <p>Ekolog mutaxassis</p>
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i> 20 daqiqa
                             </div>
-                        </div>
-                    </div>
-                    <div class="event-content">
-                        <p class="event-description">Iqlim o'zgarishining O'zbekistonga ta'siri va yechimlar. Suv resurslari va qishloq xo'jaligi kelajagi. Ekologik barqarorlik va yangi texnologiyalar.</p>
-                        <div class="event-meta">
-                            <div class="meta-item"><i class="far fa-clock"></i> 20 daqiqa</div>
                             <a href="#contact" class="event-btn">Dildan suhbat</a>
                         </div>
                     </div>
@@ -964,64 +1370,83 @@
         </div>
     </section>
 
-    <!-- CONTACT (GOOGLE FORM ULANADI) -->
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Biz bilan Aloqa</h2>
                 <p class="section-subtitle">MIS platformasi bilan bog'lanish va hamkorlik uchun</p>
             </div>
+            
             <div class="contact-content">
                 <div class="contact-form">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 25px; text-align: center;">Xabar Yuboring</h3>
-                    <!-- GOOGLE FORM IFRAME -->
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx_nMDO4PpanTSl_6iKgJen9pHiAk5J20-ZcJTOkri4BamuA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Yuklanmoqda...</iframe>
+                    <h3>Xabar Yuboring</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ismingiz" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Elektron pochta manzilingiz" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Xabaringiz..." rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Xabarni Yuborish</button>
+                        </div>
+                    </form>
                 </div>
+                
                 <div class="contact-info">
                     <div class="info-card">
-                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <div class="info-content">
                             <h3>Elektron Pochta</h3>
                             <p>mis.ilmsuhbati@gmail.com</p>
                             <p>Loyiha haqida umumiy savollar va takliflar</p>
                         </div>
                     </div>
+                    
                     <div class="info-card">
-                        <div class="info-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="info-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
                         <div class="info-content">
                             <h3>To'g'ridan-to'g'ri Bog'lanish</h3>
-                            <p><a href="https://t.me/Jbahodir" target="_blank">Telegram: @Jbahodir</a></p>
-                            <p><a href="https://t.me/behruznoraliyev" target="_blank">Telegram: @behruznoraliyev</a></p>
-                            <p><em style="color: var(--accent-gold);">Ikkalamiz ham MIS Asoschisi</em></p>
+                            <p>Telegram: <a href="https://t.me/Jbahodir" target="_blank">@Jbahodir</a></p>
+                            <p>Telegram: <a href="https://t.me/behruznoraliyev" target="_blank">@behruznoraliyev</a></p>
+                            <p style="color: var(--accent-gold); margin-top: 8px;">Ikkalamiz ham MIS Asoschisi</p>
                         </div>
                     </div>
+                    
                     <div class="info-card">
-                        <div class="info-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="info-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
                         <div class="info-content">
                             <h3>Homiylik va Hamkorlik</h3>
                             <ul class="cooperation-list">
-                                <li><span style="font-size: 1.2em;">✨</span> Premium suhbatlarni homiylik qilish</li>
-                                <li><span style="font-size: 1.2em;">🤝</span> Media va kontent hamkorligi</li>
-                                <li><span style="font-size: 1.2em;">💼</span> Korporativ tadbirlar o'tkazish</li>
-                                <li><span style="font-size: 1.2em;">🎓</span> Universitetlarda dildan suhbatlar</li>
-                                <li><span style="font-size: 1.2em;">📱</span> Loyihani qo'llab-quvvatlash</li>
+                                <li>Premium suhbatlarni homiylik qilish</li>
+                                <li>Media va kontent hamkorligi</li>
+                                <li>Korporativ tadbirlar o'tkazish</li>
+                                <li>Universitetlarda dildan suhbatlar</li>
+                                <li>Loyihani qo'llab-quvvatlash</li>
                             </ul>
-                            <p style="margin-top: 15px;">
-                                Telegram kanal: <a href="https://t.me/MilliyIlmSuhbati" target="_blank" style="font-weight: bold;">@MilliyIlmSuhbati</a>
+                            <p style="margin-top: 10px;">
+                                Telegram kanal: <a href="https://t.me/MilliyIlmSuhbati" target="_blank">@MilliyIlmSuhbati</a>
                             </p>
                         </div>
                     </div>
-                    <div class="info-card">
-                        <div class="info-icon"><i class="fas fa-share-alt"></i></div>
-                        <div class="info-content">
-                            <h3>Ijtimoiy Tarmoqlar</h3>
-                            <p>Bizni ijtimoiy tarmoqlarda kuzatib boring</p>
-                            <div class="social-icons">
-                                <a href="https://t.me/MilliyIlmSuhbati" class="social-icon" target="_blank"><i class="fab fa-telegram"></i></a>
-                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                            </div>
+                    
+                    <div class="social-links">
+                        <h3>Ijtimoiy Tarmoqlar</h3>
+                        <div class="social-icons">
+                            <a href="https://t.me/MilliyIlmSuhbati" class="social-icon" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1042,6 +1467,7 @@
                         <span class="footer-logo-sub">Milliy Ilm Suhbati</span>
                     </div>
                 </div>
+                
                 <div class="footer-links">
                     <h3>Tez Havolalar</h3>
                     <a href="#home">Bosh Sahifa</a>
@@ -1051,6 +1477,7 @@
                     <a href="#events">Kelgusi Tadbirlar</a>
                     <a href="#contact">Aloqa</a>
                 </div>
+                
                 <div class="footer-goals">
                     <h3>Maqsadimiz</h3>
                     <ul class="goal-list">
@@ -1061,76 +1488,104 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 MIS - Milliy Ilm Suhbati. Barcha huquqlar himoyalangan.</p>
+                <p>&copy; 2023 MIS - Milliy Ilm Suhbati. Barcha huquqlar himoyalangan.</p>
                 <p>O'zbek tilida chuqur tahlillar platformasi</p>
-                <p>"Bir yutamiz, sog' omon bo'ling, omon bo'ling, o'zingizning dunyoyingizni kashf eting"</p>
             </div>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT KODI -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. NAVBAR SCROLL EFFEКТI
+            // Navbar scroll effekti
             const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', () => {
-                navbar.classList.toggle('scrolled', window.scrollY > 50);
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
-
-            // 2. MOBILE MENU
-            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navLinks = document.querySelector('.nav-links');
-            mobileBtn.addEventListener('click', () => {
+            
+            mobileMenuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
-                const spans = mobileBtn.querySelectorAll('span');
+                
+                const spans = mobileMenuBtn.querySelectorAll('span');
                 if (navLinks.classList.contains('active')) {
-                    spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
                     spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
                 } else {
                     spans[0].style.transform = 'none';
                     spans[1].style.opacity = '1';
                     spans[2].style.transform = 'none';
                 }
             });
-
-            // 3. SMOOTH SCROLL
+            
+            // Mobile menuni yopish
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    const spans = mobileMenuBtn.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                });
+            });
+            
+            // Form yuborish
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Yuborilmoqda...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Xabaringiz uchun rahmat! Tez orada siz bilan bog\'lanamiz.');
+                    
+                    contactForm.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            });
+            
+            // Smooth scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
                         window.scrollTo({
-                            top: target.offsetTop - 80,
+                            top: targetElement.offsetTop - 70,
                             behavior: 'smooth'
                         });
-                        // Mobile menyuni yopish
-                        navLinks.classList.remove('active');
-                        const spans = mobileBtn.querySelectorAll('span');
-                        spans[0].style.transform = spans[2].style.transform = 'none';
-                        spans[1].style.opacity = '1';
                     }
                 });
             });
-
-            // 4. ANIMATSIYA
-            const observerOptions = { threshold: 0.1 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            // Karta elementlarini kuzatish
-            document.querySelectorAll('.about-card, .format-card, .team-card, .event-card, .info-card').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
+            
+            // Page load animation
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease';
         });
     </script>
 </body>
