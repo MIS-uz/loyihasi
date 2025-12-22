@@ -61,60 +61,147 @@
             background-color: rgba(194, 40, 34, 0.98);
         }
 
-        . <a href="#home" class="logo">
-            <div class="logo-img">
-                <img src="loyiha.jpg" alt="MIS Logo">
-            </div>
-            <div class="logo-text">
-                <span class="logo-main">MIS</span>
-                <span class="logo-sub">Milliy Ilm Suhbati</span>
-            </div>
-        </a>logo-img, .footer-logo-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #c22822, #deb05a);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s ease;
-    box-shadow: 0 4px 15px rgba(194, 40, 34, 0.4);
-    border: 2px solid #deb05a;
-}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
 
-.logo-img img, .footer-logo-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            position: relative;
+            padding: 5px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
 
-.logo:hover .logo-img,
-.footer-logo:hover .footer-logo-img {
-    transform: rotate(10deg) scale(1.1);
-    box-shadow: 0 8px 30px rgba(194, 40, 34, 0.7), 0 0 0 3px #deb05a;
-}
+        .logo:hover {
+            transform: translateY(-2px);
+        }
 
-.logo-text, .footer-logo-text {
-    display: flex;
-    flex-direction: column;
-}
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(194, 40, 34, 0.4);
+            border: 2px solid var(--accent-gold);
+        }
 
-.logo-main, .footer-logo-main {
-    font-size: 1.8rem;
-    font-weight: 800;
-    background: linear-gradient(to right, #deb05a, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .logo-img img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+            border-radius: 6px;
+            transition: all 0.5s ease;
+            filter: brightness(0) invert(1);
+        }
 
-.logo-sub, .footer-logo-sub {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.9);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+        .logo:hover .logo-img {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 
+                0 8px 30px rgba(194, 40, 34, 0.6),
+                0 0 0 2px var(--accent-gold),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: logoGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        .logo:hover .logo-img img {
+            transform: scale(1.15);
+            filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+        }
+
+        @keyframes logoGlow {
+            0% {
+                box-shadow: 
+                    0 8px 25px rgba(194, 40, 34, 0.4),
+                    0 0 0 2px var(--accent-gold),
+                    inset 0 0 15px rgba(255, 255, 255, 0.1);
+            }
+            100% {
+                box-shadow: 
+                    0 8px 30px rgba(194, 40, 34, 0.7),
+                    0 0 0 3px var(--accent-gold),
+                    inset 0 0 25px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .logo-img::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.2) 50%,
+                transparent 70%
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .logo:hover .logo-img::before {
+            opacity: 1;
+            animation: lightSweep 1.2s ease-in-out;
+        }
+
+        @keyframes lightSweep {
+            0% {
+                transform: rotate(45deg) translateX(-100%);
+            }
+            100% {
+                transform: rotate(45deg) translateX(100%);
+            }
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-gold), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover .logo-main {
+            text-shadow: 0 0 20px rgba(222, 176, 90, 0.8);
+        }
+
+        .logo-sub {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover .logo-sub {
+            color: var(--accent-gold);
+            transform: translateY(2px);
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
